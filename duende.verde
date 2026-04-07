@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GIF Duende Verde</title>
+</head>
+<body style="background-color: #111; text-align: center;">
+
+    <h1 style="color: white;">GIF do Duende Verde</h1>
+
+    <!-- GIF incorporado do Tenor -->
+    <div class="tenor-gif-embed" 
+         data-postid="23817023" 
+         data-share-method="host" 
+         data-aspect-ratio="1.77" 
+         data-width="50%">
+    </div>
+
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+</body>
+</html>
