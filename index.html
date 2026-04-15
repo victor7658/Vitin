@@ -11,9 +11,7 @@
             text-align: center;
         }
 
-        h1 {
-            margin-top: 20px;
-        }
+        h1 { margin-top: 20px; }
 
         .materias {
             display: flex;
@@ -34,9 +32,7 @@
             transition: 0.3s;
         }
 
-        .materia:hover {
-            background-color: #e0e0e0;
-        }
+        .materia:hover { background-color: #e0e0e0; }
 
         .anotacao {
             margin-top: 30px;
@@ -61,32 +57,23 @@
             font-weight: bold;
         }
 
-        .salvar {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .sair {
-            background-color: #dc3545;
-            color: white;
-        }
+        .salvar { background-color: #28a745; color: white; }
+        .sair { background-color: #dc3545; color: white; }
 
         .btn {
             background-color: #ffffff;
             color: #1e90ff;
         }
 
-        .btn:hover {
-            background-color: #e0e0e0;
-        }
+        .btn:hover { background-color: #e0e0e0; }
     </style>
 </head>
 
 <body>
 
-    <!-- ÁUDIO -->
+    <!-- 🔊 ÁUDIO EMBUTIDO -->
     <audio id="audio">
-        <source src="audio.mp3" type="audio/mpeg">
+        <source src="data:audio/mpeg;base64,COLE_SEU_AUDIO_AQUI" type="audio/mpeg">
     </audio>
 
     <h1>Mochila do Victor 🎒</h1>
@@ -101,11 +88,10 @@
         <button class="sair" onclick="sair()">Sair</button>
     </div>
 
-    <!-- BOTÕES EXTRAS -->
     <div style="margin-top: 40px;">
         <a href="aula.html"><button class="btn">AULA Z</button></a>
-        <a href="peixe.html"><button class="btn">Tucunare</button></a>
-        <a href="duende.html"><button class="btn">Duende</button></a>
+        <a href="peixe.html"><button class="btn">tucunare</button></a>
+        <a href="duende.html"><button class="btn">duende</button></a>
         <a href="Braille.html"><button class="btn">Braille</button></a>
     </div>
 
@@ -155,11 +141,9 @@
             document.getElementById("area-anotacao").style.display = "none";
         }
 
-        // 🔊 TOCAR ÁUDIO AO PRIMEIRO CLIQUE
+        // 🔊 tocar áudio
         document.body.addEventListener("click", function () {
-            const audio = document.getElementById("audio");
-            audio.volume = 1;
-            audio.play();
+            document.getElementById("audio").play();
         }, { once: true });
     </script>
 
