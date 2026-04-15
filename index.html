@@ -1,83 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Mochila do Victor</title>
+    <meta charset="UTF-8">
+    <title>Mochila do Victor</title>
+    <style>
+        body {
+            background-color: #1e90ff;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-<style>
-body {
-    background-color: #1e90ff;
-    font-family: Arial;
-    color: white;
-    text-align: center;
-}
+        h1 { margin-top: 20px; }
 
-.materias {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
+        .materias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-.materia {
-    background: white;
-    color: #1e90ff;
-    padding: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 180px;
-}
+        .materia {
+            background-color: #ffffff;
+            color: #1e90ff;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 180px;
+        }
 
-.anotacao, .calculadora {
-    display: none;
-    margin-top: 30px;
-}
+        .anotacao, .calculadora {
+            margin-top: 30px;
+            display: none;
+        }
 
-textarea {
-    width: 70%;
-    height: 150px;
-    border-radius: 10px;
-}
+        textarea {
+            width: 70%;
+            height: 150px;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+        }
 
-button {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-}
+        button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.salvar { background: green; color: white; }
-.sair { background: red; color: white; }
-.btn { background: white; color: #1e90ff; }
+        .salvar { background-color: #28a745; color: white; }
+        .sair { background-color: #dc3545; color: white; }
+        .btn { background-color: white; color: #1e90ff; }
 
-/* CALCULADORA */
-.calc-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    color: black;
-}
+        /* CALCULADORA */
+        .calc-box {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
 
-#display {
-    width: 200px;
-    height: 40px;
-    margin-bottom: 10px;
-    text-align: right;
-    font-size: 18px;
-}
+        .calc-display {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+            font-size: 18px;
+        }
 
-.calc-btn {
-    width: 45px;
-    height: 45px;
-}
-</style>
+        .calc-btn {
+            width: 45px;
+            height: 45px;
+            margin: 3px;
+        }
+    </style>
 </head>
 
 <body>
 
+<audio id="audio">
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
 <h1>Mochila do Victor 🎒</h1>
+<p>Clique na matéria para fazer anotações</p>
 
 <div id="menu" class="materias"></div>
 
@@ -91,9 +104,8 @@ button {
 <!-- CALCULADORA -->
 <div id="area-calculadora" class="calculadora">
     <h2>Calculadora</h2>
-
     <div class="calc-box">
-        <input id="display" readonly><br>
+        <input id="display" class="calc-display" readonly><br>
 
         <button class="calc-btn" onclick="add('7')">7</button>
         <button class="calc-btn" onclick="add('8')">8</button>
@@ -115,17 +127,29 @@ button {
         <button class="calc-btn" onclick="limpar()">C</button>
         <button class="calc-btn" onclick="add('+')">+</button>
     </div>
-
     <br>
     <button class="sair" onclick="sair()">Voltar</button>
 </div>
 
+<!-- BOTÕES EXTRAS -->
 <div style="margin-top: 40px;">
-    <button class="btn" onclick="abrirCalculadora()">Calculadora</button>
+    <a href="#"><button class="btn" onclick="abrirCalculadora()">Calculadora</button></a>
+    <a href="aula.html"><button class="btn">AULA Z</button></a>
+    <a href="peixe.html"><button class="btn">Tucunare</button></a>
+    <a href="duende.html"><button class="btn">Duende</button></a>
+    <a href="Braille.html"><button class="btn">Braille</button></a>
 </div>
 
 <script>
-const materias = ["Matemática","Português","História","Geografia"];
+const materias = [
+    "Matemática","Português","Educação Física","Filosofia","Historia",
+    "Geografia","Biologia","Artes","Sistemas Operacionais",
+    "Praticas Experimentais","Projeto de Vida","Gestão de Tempo",
+    "Poo Java","Noções de Robótica","Programação Web","Fisica",
+    "Arquitetura e Manutenção de Computadores","Quimica",
+    "Educação Financeira","Logica de Programação",
+    "Estudos Orientados","HTML","Sociologia","Ingles"
+];
 
 let materiaAtual = "";
 const menu = document.getElementById("menu");
@@ -142,11 +166,19 @@ function abrirMateria(materia) {
     materiaAtual = materia;
     menu.style.display = "none";
     document.getElementById("area-anotacao").style.display = "block";
-    document.getElementById("titulo-materia").innerText = materia;
+    document.getElementById("titulo-materia").innerText = "Anotações de " + materia;
+    carregar();
 }
 
 function salvar() {
-    localStorage.setItem(materiaAtual, document.getElementById("texto").value);
+    let texto = document.getElementById("texto").value;
+    localStorage.setItem(materiaAtual, texto);
+    alert("Anotação salva!");
+}
+
+function carregar() {
+    let textoSalvo = localStorage.getItem(materiaAtual);
+    document.getElementById("texto").value = textoSalvo ? textoSalvo : "";
 }
 
 function sair() {
@@ -155,48 +187,12 @@ function sair() {
     document.getElementById("area-calculadora").style.display = "none";
 }
 
-/* CALCULADORA */
-function abrirCalculadora() {
-    menu.style.display = "none";
-    document.getElementById("area-calculadora").style.display = "block";
-}
 
-function add(valor) {
-    document.getElementById("display").value += valor;
-}
-
-function calcular() {
-    try {
-        let resultado = eval(document.getElementById("display").value);
-        document.getElementById("display").value = resultado;
-    } catch {
-        alert("Erro!");
-    }
-}
-
-function limpar() {
-    document.getElementById("display").value = "";
-}
-
-function apagar() {
-    let valor = document.getElementById("display").value;
-    document.getElementById("display").value = valor.slice(0, -1);
-}
-
-/* TECLADO 🔥 */
-document.addEventListener("keydown", function(e) {
-    const key = e.key;
-
-    if (!document.getElementById("area-calculadora").style.display.includes("block")) return;
-
-    if (!isNaN(key) || ["+", "-", "*", "/", "."].includes(key)) {
-        add(key);
-    }
-
-    if (key === "Enter") calcular();
-    if (key === "Backspace") apagar();
-    if (key === "Escape") limpar();
-});
+// ÁUDIO
+document.body.addEventListener("click", function () {
+    const audio = document.getElementById("audio");
+    audio.play();
+}, { once: true });
 </script>
 
 </body>
