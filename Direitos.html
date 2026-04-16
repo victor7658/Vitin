@@ -8,7 +8,7 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #0b3d91; /* azul */
+        background-color: #0b3d91;
         color: white;
         text-align: center;
     }
@@ -83,33 +83,33 @@
     <!-- Imagem -->
     <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/children-1299976_1280.png" alt="Alunos na escola">
 
-    <!-- Texto autoral -->
+    <!-- Texto -->
     <p>
         Os direitos humanos na escola são fundamentais para garantir um ambiente respeitoso,
-        seguro e inclusivo para todos. A relação entre professores, alunos e outros profissionais
-        deve ser baseada no respeito, na empatia e na igualdade. Quando esses valores são
-        praticados no dia a dia escolar, contribuem para a formação de cidadãos conscientes
-        e responsáveis.
+        seguro e inclusivo para todos. A convivência entre professores, alunos e outros
+        profissionais deve ser baseada no respeito, na empatia e na igualdade.
     </p>
 
     <p>
-        Professores têm o papel de orientar e educar, mas também de ouvir e compreender seus
-        alunos. Já os alunos devem respeitar os educadores e colegas, promovendo um ambiente
-        harmonioso. Outros profissionais da escola, como coordenadores e funcionários,
-        também são essenciais para manter esse equilíbrio e garantir que todos sejam tratados
-        com dignidade.
+        Quando esses valores são praticados, a escola se torna um espaço mais justo,
+        ajudando na formação de cidadãos conscientes e responsáveis.
     </p>
 
-    <p>
-        Assim, a escola se torna um espaço onde os direitos humanos são vividos na prática,
-        preparando os estudantes para uma convivência mais justa na sociedade.
-    </p>
-
-    <!-- Caixa de comentário -->
+    <!-- FORMULÁRIO QUE ENVIA PARA SEU EMAIL -->
     <h3>Deixe seu comentário:</h3>
-    <textarea placeholder="Escreva aqui..."></textarea>
-    <br>
-    <button onclick="alert('Comentário enviado!')">Enviar</button>
+
+    <form action="https://formsubmit.co/victor.8005656@aluno.mg.gov.br" method="POST">
+        
+        <textarea name="comentario" placeholder="Escreva aqui..." required></textarea>
+        <br>
+
+        <button type="submit">Enviar</button>
+
+        <!-- configurações extras -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Novo comentário do site!">
+
+    </form>
 
 </div>
 
