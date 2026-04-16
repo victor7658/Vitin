@@ -41,13 +41,13 @@
     }
 
     button {
-        margin-top: 15px;
-        padding: 10px 20px;
+        margin-top: 10px;
+        padding: 10px 15px;
         border: none;
         border-radius: 8px;
         background-color: #1e90ff;
         color: white;
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
     }
 
@@ -59,7 +59,7 @@
         position: fixed;
         top: 10px;
         left: 10px;
-        background-color: #ffffff;
+        background-color: white;
         color: #0b3d91;
     }
 
@@ -69,6 +69,18 @@
         padding: 10px;
         margin-top: 10px;
         border-radius: 8px;
+        text-align: left;
+        position: relative;
+    }
+
+    .excluir {
+        background-color: red;
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 5px 8px;
+        font-size: 12px;
     }
 </style>
 </head>
@@ -87,7 +99,13 @@
 
     <p>
         Os direitos humanos na escola são fundamentais para garantir um ambiente respeitoso,
-        seguro e inclusivo para todos.
+        seguro e inclusivo. A convivência entre professores, alunos e outros profissionais
+        deve ser baseada no respeito, na empatia e na igualdade.
+    </p>
+
+    <p>
+        Quando esses valores são colocados em prática, a escola se torna um espaço mais justo,
+        contribuindo para a formação de cidadãos conscientes e preparados para a vida em sociedade.
     </p>
 
     <h3>Deixe seu comentário:</h3>
@@ -113,8 +131,15 @@ function salvarComentario() {
     comentarios.push(texto);
     localStorage.setItem("comentarios", JSON.stringify(comentarios));
 
-    mostrarComentarios();
     document.getElementById("comentarioInput").value = "";
+    mostrarComentarios();
+}
+
+function excluirComentario(index) {
+    let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+    comentarios.splice(index, 1);
+    localStorage.setItem("comentarios", JSON.stringify(comentarios));
+    mostrarComentarios();
 }
 
 function mostrarComentarios() {
@@ -123,11 +148,23 @@ function mostrarComentarios() {
 
     let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
 
-    comentarios.forEach(function(texto) {
-        let p = document.createElement("div");
-        p.className = "comentario";
+    comentarios.forEach(function(texto, index) {
+        let div = document.createElement("div");
+        div.className = "comentario";
+
+        let p = document.createElement("p");
         p.textContent = texto;
-        lista.appendChild(p);
+
+        let btn = document.createElement("button");
+        btn.textContent = "Excluir";
+        btn.className = "excluir";
+        btn.onclick = function() {
+            excluirComentario(index);
+        };
+
+        div.appendChild(p);
+        div.appendChild(btn);
+        lista.appendChild(div);
     });
 }
 
