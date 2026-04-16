@@ -8,7 +8,7 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #0b3d91; /* azul */
+        background-color: #0b3d91;
         color: white;
         text-align: center;
     }
@@ -16,10 +16,6 @@
     header {
         padding: 20px;
         background-color: #082c6c;
-    }
-
-    h1 {
-        margin: 0;
     }
 
     .conteudo {
@@ -66,12 +62,19 @@
         background-color: #ffffff;
         color: #0b3d91;
     }
+
+    .comentario {
+        background: white;
+        color: black;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
 </style>
 </head>
 
 <body>
 
-<!-- Botão voltar -->
 <button class="voltar" onclick="history.back()">⬅ Voltar</button>
 
 <header>
@@ -80,38 +83,56 @@
 
 <div class="conteudo">
 
-    <!-- Imagem -->
-    <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/children-1299976_1280.png" alt="Alunos na escola">
+    <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/children-1299976_1280.png">
 
-    <!-- Texto autoral -->
     <p>
         Os direitos humanos na escola são fundamentais para garantir um ambiente respeitoso,
-        seguro e inclusivo para todos. A relação entre professores, alunos e outros profissionais
-        deve ser baseada no respeito, na empatia e na igualdade. Quando esses valores são
-        praticados no dia a dia escolar, contribuem para a formação de cidadãos conscientes
-        e responsáveis.
+        seguro e inclusivo para todos.
     </p>
 
-    <p>
-        Professores têm o papel de orientar e educar, mas também de ouvir e compreender seus
-        alunos. Já os alunos devem respeitar os educadores e colegas, promovendo um ambiente
-        harmonioso. Outros profissionais da escola, como coordenadores e funcionários,
-        também são essenciais para manter esse equilíbrio e garantir que todos sejam tratados
-        com dignidade.
-    </p>
-
-    <p>
-        Assim, a escola se torna um espaço onde os direitos humanos são vividos na prática,
-        preparando os estudantes para uma convivência mais justa na sociedade.
-    </p>
-
-    <!-- Caixa de comentário -->
     <h3>Deixe seu comentário:</h3>
-    <textarea placeholder="Escreva aqui..."></textarea>
+
+    <textarea id="comentarioInput" placeholder="Escreva aqui..."></textarea>
     <br>
-    <button onclick="alert('Comentário enviado!')">Enviar</button>
+    <button onclick="salvarComentario()">Enviar</button>
+
+    <div id="listaComentarios"></div>
 
 </div>
+
+<script>
+function salvarComentario() {
+    let texto = document.getElementById("comentarioInput").value;
+
+    if (texto.trim() === "") {
+        alert("Escreva algo!");
+        return;
+    }
+
+    let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+    comentarios.push(texto);
+    localStorage.setItem("comentarios", JSON.stringify(comentarios));
+
+    mostrarComentarios();
+    document.getElementById("comentarioInput").value = "";
+}
+
+function mostrarComentarios() {
+    let lista = document.getElementById("listaComentarios");
+    lista.innerHTML = "";
+
+    let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+    comentarios.forEach(function(texto) {
+        let p = document.createElement("div");
+        p.className = "comentario";
+        p.textContent = texto;
+        lista.appendChild(p);
+    });
+}
+
+window.onload = mostrarComentarios;
+</script>
 
 </body>
 </html>
