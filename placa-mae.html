@@ -2,43 +2,62 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Componentes da Placa-Mãe</title>
+<title>Placa-Mãe - Componentes</title>
 
 <style>
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #0b3d91;
+        background: linear-gradient(to right, #0b3d91, #1e90ff);
         color: white;
         text-align: center;
     }
 
     header {
-        background-color: #082c6c;
         padding: 20px;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        text-align: left;
-    }
-
-    .item {
-        background-color: #1e90ff;
-        margin: 10px 0;
-        padding: 15px;
-        border-radius: 10px;
     }
 
     h1 {
         margin: 0;
     }
 
-    strong {
-        font-size: 18px;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 20px;
+        max-width: 1000px;
+        margin: auto;
     }
+
+    .card {
+        background: white;
+        color: black;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .numero {
+        font-size: 20px;
+        font-weight: bold;
+        color: #0b3d91;
+    }
+
+    .titulo {
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .descricao {
+        font-size: 14px;
+    }
+
 </style>
 </head>
 
@@ -46,58 +65,69 @@
 
 <header>
     <h1>Componentes da Placa-Mãe</h1>
+    <p>Conheça as principais partes do computador</p>
 </header>
 
-<div class="container">
+<div class="grid">
 
-    <div class="item">
-        <strong>1. Socket</strong><br>
-        Onde o processador é encaixado.
+    <div class="card">
+        <div class="numero">1</div>
+        <div class="titulo">Socket</div>
+        <div class="descricao">Onde o processador é encaixado.</div>
     </div>
 
-    <div class="item">
-        <strong>2. RAM</strong><br>
-        Memória temporária do computador.
+    <div class="card">
+        <div class="numero">2</div>
+        <div class="titulo">RAM</div>
+        <div class="descricao">Memória temporária do sistema.</div>
     </div>
 
-    <div class="item">
-        <strong>3. Chipset</strong><br>
-        “Cérebro da placa-mãe”, responsável pelo controle.
+    <div class="card">
+        <div class="numero">3</div>
+        <div class="titulo">Chipset</div>
+        <div class="descricao">Controla a comunicação da placa.</div>
     </div>
 
-    <div class="item">
-        <strong>4. BIOS/UEFI</strong><br>
-        Primeiro software que roda ao ligar o computador.
+    <div class="card">
+        <div class="numero">4</div>
+        <div class="titulo">BIOS/UEFI</div>
+        <div class="descricao">Primeiro sistema ao ligar o PC.</div>
     </div>
 
-    <div class="item">
-        <strong>5. Conector ATX</strong><br>
-        Responsável pela energia da placa-mãe.
+    <div class="card">
+        <div class="numero">5</div>
+        <div class="titulo">Conector ATX</div>
+        <div class="descricao">Energia da placa-mãe.</div>
     </div>
 
-    <div class="item">
-        <strong>6. Conector CPU</strong><br>
-        Energia exclusiva do processador.
+    <div class="card">
+        <div class="numero">6</div>
+        <div class="titulo">Conector CPU</div>
+        <div class="descricao">Energia do processador.</div>
     </div>
 
-    <div class="item">
-        <strong>7. PCI Express</strong><br>
-        Usado para placa de vídeo e expansões.
+    <div class="card">
+        <div class="numero">7</div>
+        <div class="titulo">PCI Express</div>
+        <div class="descricao">Placa de vídeo e expansões.</div>
     </div>
 
-    <div class="item">
-        <strong>8. SATA</strong><br>
-        Conexão para HD e SSD.
+    <div class="card">
+        <div class="numero">8</div>
+        <div class="titulo">SATA</div>
+        <div class="descricao">Conexão de HD e SSD.</div>
     </div>
 
-    <div class="item">
-        <strong>9. Bateria CMOS</strong><br>
-        Mantém as configurações do sistema.
+    <div class="card">
+        <div class="numero">9</div>
+        <div class="titulo">Bateria CMOS</div>
+        <div class="descricao">Mantém configurações.</div>
     </div>
 
-    <div class="item">
-        <strong>10. Portas traseiras</strong><br>
-        USB, rede, vídeo e outras conexões.
+    <div class="card">
+        <div class="numero">10</div>
+        <div class="titulo">Portas traseiras</div>
+        <div class="descricao">USB, rede, vídeo e mais.</div>
     </div>
 
 </div>
