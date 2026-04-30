@@ -14,7 +14,7 @@ body {
     transition: 0.4s;
 }
 
-/* 🌙 MODO ESCURO */
+/* 🌙 DARK MODE */
 body.dark {
     background: #0d1117;
 }
@@ -25,25 +25,53 @@ h1 {
     font-size: 2.2em;
 }
 
-/* 🔥 RELÓGIO BONITO */
+/* 🔥 RELÓGIO NEON */
 #clockBox {
     margin-top: 10px;
-    padding: 10px 20px;
     display: inline-block;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.15);
+    padding: 15px 25px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* NEON RELÓGIO */
 #relogio {
-    font-size: 1.8em;
+    font-size: 2.2em;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #00fff7;
+    text-shadow:
+        0 0 5px #00fff7,
+        0 0 10px #00fff7,
+        0 0 20px #00eaff,
+        0 0 40px #00eaff;
+    animation: neonPulse 1.5s infinite alternate;
 }
 
+/* NEON ANIMAÇÃO */
+@keyframes neonPulse {
+    from {
+        text-shadow:
+        0 0 5px #00fff7,
+        0 0 10px #00fff7,
+        0 0 20px #00eaff,
+        0 0 30px #00eaff;
+    }
+    to {
+        text-shadow:
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 30px #00eaff,
+        0 0 50px #00eaff;
+    }
+}
+
+/* DATA */
 #data {
     font-size: 1em;
+    margin-top: 5px;
     opacity: 0.9;
 }
 
@@ -72,13 +100,12 @@ h1 {
     background: rgba(255,255,255,0.25);
 }
 
-/* 🌙 CARDS DARK */
+/* DARK CARDS */
 body.dark .materia {
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ÁREA ANOTAÇÃO */
+/* ANOTAÇÕES */
 .anotacao {
     display: none;
     padding: 20px;
@@ -117,15 +144,9 @@ button {
 
 button:hover {
     transform: scale(1.05);
-    opacity: 0.9;
 }
 
-/* DARK BTN */
-body.dark .btn {
-    background: #161b22;
-    color: white;
-}
-
+/* LINKS */
 .links {
     margin-top: 30px;
 }
@@ -140,10 +161,10 @@ body.dark .btn {
 
 <h1>Mochila do Victor 🎒</h1>
 
-<!-- 🔥 RELÓGIO + DATA BONITO -->
+<!-- 🔥 RELÓGIO NEON -->
 <div id="clockBox">
     <div id="relogio">00:00:00</div>
-    <div id="data">00/00/0000</div>
+    <div id="data">Carregando data...</div>
 </div>
 
 <p>Escolha uma matéria</p>
@@ -215,8 +236,8 @@ function sair() {
     document.getElementById("area-anotacao").style.display = "none";
 }
 
-/* 🔥 RELÓGIO + DATA BONITA */
-function atualizarClock() {
+/* 🔥 RELÓGIO NEON + DATA */
+function atualizar() {
     const agora = new Date();
 
     let h = String(agora.getHours()).padStart(2,'0');
@@ -229,17 +250,13 @@ function atualizarClock() {
     const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
                    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
-    let dia = dias[agora.getDay()];
-    let data = agora.getDate();
-    let mes = meses[agora.getMonth()];
-    let ano = agora.getFullYear();
+    let textoData = `${dias[agora.getDay()]}, ${agora.getDate()} de ${meses[agora.getMonth()]} de ${agora.getFullYear()}`;
 
-    document.getElementById("data").innerText =
-    `${dia}, ${data} de ${mes} de ${ano}`;
+    document.getElementById("data").innerText = textoData;
 }
 
-setInterval(atualizarClock, 1000);
-atualizarClock();
+setInterval(atualizar, 1000);
+atualizar();
 
 /* 🔊 SOM */
 document.body.addEventListener("click", function () {
