@@ -213,23 +213,36 @@ function sair() {
     document.getElementById("area-anotacao").style.display = "none";
 }
 
-/* 🔎 FUNÇÃO DE BUSCA */
+/* 🔎 BUSCA MELHORADA (PALAVRA COMPLETA) */
 function buscarTexto() {
-    const busca = document.getElementById("busca").value.toLowerCase();
+    const busca = document.getElementById("busca").value.trim().toLowerCase();
     const textarea = document.getElementById("texto");
-    const texto = textarea.value.toLowerCase();
 
     if (!busca) return;
 
-    const pos = texto.indexOf(busca);
+    const texto = textarea.value.toLowerCase();
 
-    if (pos !== -1) {
-        textarea.focus();
-        textarea.setSelectionRange(pos, pos + busca.length);
+    const regex = new RegExp("\\b" + busca + "\\b", "gi");
 
-        const alturaLinha = textarea.scrollHeight / texto.length;
-        textarea.scrollTop = pos * alturaLinha;
+    let match;
+    let posicoes = [];
+
+    while ((match = regex.exec(texto)) !== null) {
+        posicoes.push(match.index);
     }
+
+    if (posicoes.length === 0) {
+        alert("Palavra não encontrada!");
+        return;
+    }
+
+    const pos = posicoes[0];
+
+    textarea.focus();
+    textarea.setSelectionRange(pos, pos + busca.length);
+
+    const proporcao = pos / textarea.value.length;
+    textarea.scrollTop = textarea.scrollHeight * proporcao;
 }
 
 document.body.addEventListener("click", function () {
