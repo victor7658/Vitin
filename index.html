@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Mochila do Victor</title>
+
+    <!-- 🔥 FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+
     <style>
         body {
             background-color: #1e90ff;
@@ -84,7 +89,6 @@
 
 <body>
 
-    <!-- ÁUDIO -->
     <audio id="audio">
         <source src="audio.mp3" type="audio/mpeg">
     </audio>
@@ -101,7 +105,6 @@
         <button class="sair" onclick="sair()">Sair</button>
     </div>
 
-    <!-- BOTÕES EXTRAS -->
     <div style="margin-top: 40px;">
         <a href="aula.html"><button class="btn">AULA Z</button></a>
         <a href="peixe.html"><button class="btn">Tucunare</button></a>
@@ -112,6 +115,16 @@
     </div>
 
     <script>
+        // 🔥 CONFIG FIREBASE (COLE A SUA AQUI)
+        const firebaseConfig = {
+            apiKey: "SUA_KEY",
+            authDomain: "SEU_DOMINIO",
+            projectId: "SEU_ID",
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         const materias = [
             "Matemática","Português","Educação Física","Filosofia","Historia",
             "Geografia","Biologia","Artes","Sistemas Operacionais",
@@ -141,15 +154,41 @@
             carregar();
         }
 
-        function salvar() {
+        // 🔥 SALVAR LOCAL + NUVEM
+        async function salvar() {
             let texto = document.getElementById("texto").value;
-            localStorage.setItem(materiaAtual, texto);
-            alert("Anotação salva!");
+
+            // salva local
+            localStorage.setItem("materia_" + materiaAtual, texto);
+
+            // salva na nuvem
+            try {
+                await db.collection("anotacoes").doc(materiaAtual).set({
+                    texto: texto
+                });
+                alert("Salvo na nuvem ☁️");
+            } catch (e) {
+                alert("Erro ao salvar na nuvem");
+            }
         }
 
-        function carregar() {
-            let textoSalvo = localStorage.getItem(materiaAtual);
-            document.getElementById("texto").value = textoSalvo ? textoSalvo : "";
+        // 🔥 CARREGAR LOCAL + NUVEM
+        async function carregar() {
+            // tenta local primeiro
+            let textoLocal = localStorage.getItem("materia_" + materiaAtual);
+            if (textoLocal) {
+                document.getElementById("texto").value = textoLocal;
+            }
+
+            // depois tenta nuvem
+            try {
+                const doc = await db.collection("anotacoes").doc(materiaAtual).get();
+                if (doc.exists) {
+                    document.getElementById("texto").value = doc.data().texto;
+                }
+            } catch (e) {
+                console.log("Erro ao carregar da nuvem");
+            }
         }
 
         function sair() {
@@ -157,11 +196,9 @@
             document.getElementById("area-anotacao").style.display = "none";
         }
 
-        // 🔊 TOCAR ÁUDIO AO PRIMEIRO CLIQUE
         document.body.addEventListener("click", function () {
             const audio = document.getElementById("audio");
-            audio.volume = 1;
-            audio.play();
+            audio.play().catch(()=>{});
         }, { once: true });
     </script>
 
