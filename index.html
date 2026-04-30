@@ -78,6 +78,15 @@ body.dark textarea {
     color: #e6edf3;
 }
 
+/* 🔎 BUSCA */
+#busca {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+
 /* BOTÕES */
 button {
     margin: 10px;
@@ -135,6 +144,10 @@ body.dark .btn {
 
 <div id="area-anotacao" class="anotacao">
     <h2 id="titulo-materia"></h2>
+
+    <!-- 🔎 CAMPO DE BUSCA -->
+    <input type="text" id="busca" placeholder="🔎 Buscar na anotação..." onkeyup="buscarTexto()">
+
     <textarea id="texto"></textarea><br>
     <button class="salvar" onclick="salvar()">Salvar</button>
     <button class="sair" onclick="sair()">Voltar</button>
@@ -174,7 +187,7 @@ materias.forEach(m => {
 function abrirMateria(materia) {
     materiaAtual = materia;
 
-    document.body.classList.add("dark"); // 🌙 ATIVA DARK
+    document.body.classList.add("dark");
 
     document.getElementById("menu").style.display = "none";
     document.getElementById("area-anotacao").style.display = "block";
@@ -194,10 +207,29 @@ function carregar() {
 }
 
 function sair() {
-    document.body.classList.remove("dark"); // 🌙 DESATIVA DARK
+    document.body.classList.remove("dark");
 
     document.getElementById("menu").style.display = "grid";
     document.getElementById("area-anotacao").style.display = "none";
+}
+
+/* 🔎 FUNÇÃO DE BUSCA */
+function buscarTexto() {
+    const busca = document.getElementById("busca").value.toLowerCase();
+    const textarea = document.getElementById("texto");
+    const texto = textarea.value.toLowerCase();
+
+    if (!busca) return;
+
+    const pos = texto.indexOf(busca);
+
+    if (pos !== -1) {
+        textarea.focus();
+        textarea.setSelectionRange(pos, pos + busca.length);
+
+        const alturaLinha = textarea.scrollHeight / texto.length;
+        textarea.scrollTop = pos * alturaLinha;
+    }
 }
 
 document.body.addEventListener("click", function () {
