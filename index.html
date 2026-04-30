@@ -78,15 +78,6 @@ body.dark textarea {
     color: #e6edf3;
 }
 
-/* 🔎 BUSCA */
-#busca {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 10px;
-}
-
 /* BOTÕES */
 button {
     margin: 10px;
@@ -144,10 +135,6 @@ body.dark .btn {
 
 <div id="area-anotacao" class="anotacao">
     <h2 id="titulo-materia"></h2>
-
-    <!-- 🔎 CAMPO DE BUSCA -->
-    <input type="text" id="busca" placeholder="🔎 Buscar na anotação..." onkeyup="buscarTexto()">
-
     <textarea id="texto"></textarea><br>
     <button class="salvar" onclick="salvar()">Salvar</button>
     <button class="sair" onclick="sair()">Voltar</button>
@@ -159,7 +146,7 @@ body.dark .btn {
     <a href="duende.html"><button class="btn">Duende</button></a>
     <a href="Braille.html"><button class="btn">Braille</button></a>
     <a href="Direitos.html"><button class="btn">Direitos</button></a>
-    <a href="placa-mae.html"><button class="btn">Placa-mãe</button></a>
+    <a href="placa-mae.html"><button class="btn">placa-mae</button></a>
 </div>
 
 <script>
@@ -211,38 +198,6 @@ function sair() {
 
     document.getElementById("menu").style.display = "grid";
     document.getElementById("area-anotacao").style.display = "none";
-}
-
-/* 🔎 BUSCA MELHORADA (PALAVRA COMPLETA) */
-function buscarTexto() {
-    const busca = document.getElementById("busca").value.trim().toLowerCase();
-    const textarea = document.getElementById("texto");
-
-    if (!busca) return;
-
-    const texto = textarea.value.toLowerCase();
-
-    const regex = new RegExp("\\b" + busca + "\\b", "gi");
-
-    let match;
-    let posicoes = [];
-
-    while ((match = regex.exec(texto)) !== null) {
-        posicoes.push(match.index);
-    }
-
-    if (posicoes.length === 0) {
-        alert("Palavra não encontrada!");
-        return;
-    }
-
-    const pos = posicoes[0];
-
-    textarea.focus();
-    textarea.setSelectionRange(pos, pos + busca.length);
-
-    const proporcao = pos / textarea.value.length;
-    textarea.scrollTop = textarea.scrollHeight * proporcao;
 }
 
 document.body.addEventListener("click", function () {
