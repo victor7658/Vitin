@@ -1,169 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Mochila do Victor</title>
-    <style>
-        body {
-            background-color: #1e90ff;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<title>Mochila do Victor</title>
 
-        h1 {
-            margin-top: 20px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e90ff, #6a5acd);
+    color: white;
+    text-align: center;
+}
 
-        .materias {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
+/* TÍTULO */
+h1 {
+    margin-top: 20px;
+    font-size: 2.2em;
+}
 
-        .materia {
-            background-color: #ffffff;
-            color: #1e90ff;
-            padding: 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 180px;
-            transition: 0.3s;
-        }
+/* GRID */
+.materias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
 
-        .materia:hover {
-            background-color: #e0e0e0;
-        }
+/* CARDS */
+.materia {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.2);
+}
 
-        .anotacao {
-            margin-top: 30px;
-            display: none;
-        }
+.materia:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+}
 
-        textarea {
-            width: 70%;
-            height: 150px;
-            border-radius: 10px;
-            padding: 10px;
-            border: none;
-            resize: none;
-        }
+/* ÁREA DE TEXTO */
+.anotacao {
+    display: none;
+    padding: 20px;
+}
 
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+textarea {
+    width: 90%;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    outline: none;
+}
 
-        .salvar {
-            background-color: #28a745;
-            color: white;
-        }
+/* BOTÕES */
+button {
+    margin: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .sair {
-            background-color: #dc3545;
-            color: white;
-        }
+.salvar {
+    background: #00c853;
+    color: white;
+}
 
-        .btn {
-            background-color: #ffffff;
-            color: #1e90ff;
-        }
+.sair {
+    background: #ff1744;
+    color: white;
+}
 
-        .btn:hover {
-            background-color: #e0e0e0;
-        }
-    </style>
+.btn {
+    background: white;
+    color: #1e90ff;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* BOTÕES EXTRAS */
+.links {
+    margin-top: 30px;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ÁUDIO -->
-    <audio id="audio">
-        <source src="audio.mp3" type="audio/mpeg">
-    </audio>
+<audio id="audio">
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
 
-    <h1>Mochila do Victor 🎒</h1>
-    <p>Clique na matéria para fazer anotações</p>
+<h1>Mochila do Victor 🎒</h1>
+<p>Escolha uma matéria</p>
 
-    <div id="menu" class="materias"></div>
+<div id="menu" class="materias"></div>
 
-    <div id="area-anotacao" class="anotacao">
-        <h2 id="titulo-materia"></h2>
-        <textarea id="texto"></textarea><br>
-        <button class="salvar" onclick="salvar()">Salvar</button>
-        <button class="sair" onclick="sair()">Sair</button>
-    </div>
+<div id="area-anotacao" class="anotacao">
+    <h2 id="titulo-materia"></h2>
+    <textarea id="texto"></textarea><br>
+    <button class="salvar" onclick="salvar()">Salvar</button>
+    <button class="sair" onclick="sair()">Voltar</button>
+</div>
 
-    <!-- BOTÕES EXTRAS -->
-    <div style="margin-top: 40px;">
-        <a href="aula.html"><button class="btn">AULA Z</button></a>
-        <a href="peixe.html"><button class="btn">Tucunare</button></a>
-        <a href="duende.html"><button class="btn">Duende</button></a>
-        <a href="Braille.html"><button class="btn">Braille</button></a>
-        <a href="Direitos.html"><button class="btn">Direitos</button></a>
-        <a href="placa-mae.html"><button class="btn">placa-mae</button></a>
-    </div>
+<div class="links">
+    <a href="aula.html"><button class="btn">AULA Z</button></a>
+    <a href="peixe.html"><button class="btn">Tucunare</button></a>
+    <a href="duende.html"><button class="btn">Duende</button></a>
+    <a href="Braille.html"><button class="btn">Braille</button></a>
+    <a href="Direitos.html"><button class="btn">Direitos</button></a>
+    <a href="placa-mae.html"><button class="btn">Placa-mãe</button></a>
+</div>
 
-    <script>
-        const materias = [
-            "Matemática","Português","Educação Física","Filosofia","Historia",
-            "Geografia","Biologia","Artes","Sistemas Operacionais",
-            "Praticas Experimentais","Projeto de Vida","Gestão de Tempo",
-            "Poo Java","Noções de Robótica","Programação Web","Fisica",
-            "Arquitetura e Manutenção de Computadores","Quimica",
-            "Educação Financeira","Logica de Programação",
-            "Estudos Orientados","HTML","Sociologia","Ingles"
-        ];
+<script>
+const materias = [
+    "Matemática","Português","Educação Física","Filosofia","Historia",
+    "Geografia","Biologia","Artes","Sistemas Operacionais",
+    "Praticas Experimentais","Projeto de Vida","Gestão de Tempo",
+    "Poo Java","Noções de Robótica","Programação Web","Fisica",
+    "Arquitetura e Manutenção de Computadores","Quimica",
+    "Educação Financeira","Logica de Programação",
+    "Estudos Orientados","HTML","Sociologia","Ingles"
+];
 
-        let materiaAtual = "";
-        const menu = document.getElementById("menu");
+let materiaAtual = "";
+const menu = document.getElementById("menu");
 
-        materias.forEach(m => {
-            const div = document.createElement("div");
-            div.className = "materia";
-            div.innerText = m;
-            div.onclick = () => abrirMateria(m);
-            menu.appendChild(div);
-        });
+materias.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "materia";
+    div.innerText = m;
+    div.onclick = () => abrirMateria(m);
+    menu.appendChild(div);
+});
 
-        function abrirMateria(materia) {
-            materiaAtual = materia;
-            document.getElementById("menu").style.display = "none";
-            document.getElementById("area-anotacao").style.display = "block";
-            document.getElementById("titulo-materia").innerText = "Anotações de " + materia;
-            carregar();
-        }
+function abrirMateria(materia) {
+    materiaAtual = materia;
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("area-anotacao").style.display = "block";
+    document.getElementById("titulo-materia").innerText = "Anotações de " + materia;
+    carregar();
+}
 
-        function salvar() {
-            let texto = document.getElementById("texto").value;
-            localStorage.setItem(materiaAtual, texto);
-            alert("Anotação salva!");
-        }
+function salvar() {
+    let texto = document.getElementById("texto").value;
+    localStorage.setItem(materiaAtual, texto);
+    alert("Salvo!");
+}
 
-        function carregar() {
-            let textoSalvo = localStorage.getItem(materiaAtual);
-            document.getElementById("texto").value = textoSalvo ? textoSalvo : "";
-        }
+function carregar() {
+    let textoSalvo = localStorage.getItem(materiaAtual);
+    document.getElementById("texto").value = textoSalvo ? textoSalvo : "";
+}
 
-        function sair() {
-            document.getElementById("menu").style.display = "flex";
-            document.getElementById("area-anotacao").style.display = "none";
-        }
+function sair() {
+    document.getElementById("menu").style.display = "grid";
+    document.getElementById("area-anotacao").style.display = "none";
+}
 
-        // 🔊 TOCAR ÁUDIO AO PRIMEIRO CLIQUE
-        document.body.addEventListener("click", function () {
-            const audio = document.getElementById("audio");
-            audio.volume = 1;
-            audio.play();
-        }, { once: true });
-    </script>
+document.body.addEventListener("click", function () {
+    const audio = document.getElementById("audio");
+    audio.play().catch(()=>{});
+}, { once: true });
+</script>
 
 </body>
 </html>
