@@ -25,6 +25,13 @@ h1 {
     font-size: 2.2em;
 }
 
+/* RELÓGIO */
+#relogio {
+    font-size: 1.2em;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
 /* GRID */
 .materias {
     display: grid;
@@ -129,6 +136,7 @@ body.dark .btn {
 </audio>
 
 <h1>Mochila do Victor 🎒</h1>
+<h2 id="relogio">00:00:00</h2>
 <p>Escolha uma matéria</p>
 
 <div id="menu" class="materias"></div>
@@ -146,7 +154,7 @@ body.dark .btn {
     <a href="duende.html"><button class="btn">Duende</button></a>
     <a href="Braille.html"><button class="btn">Braille</button></a>
     <a href="Direitos.html"><button class="btn">Direitos</button></a>
-    <a href="placa-mae.html"><button class="btn">placa-mae</button></a>
+    <a href="placa-mae.html"><button class="btn">Placa-mãe</button></a>
 </div>
 
 <script>
@@ -154,10 +162,10 @@ const materias = [
     "Matemática","Português","Educação Física","Filosofia","Historia",
     "Geografia","Biologia","Artes","Sistemas Operacionais",
     "Praticas Experimentais","Projeto de Vida","Gestão de Tempo",
-    "Poo Java","Noções de Robótica","Programação Web","Fisica",
-    "Arquitetura e Manutenção de Computadores","Quimica",
-    "Educação Financeira","Logica de Programação",
-    "Estudos Orientados","HTML","Sociologia","Ingles"
+    "POO Java","Noções de Robótica","Programação Web","Física",
+    "Arquitetura e Manutenção de Computadores","Química",
+    "Educação Financeira","Lógica de Programação",
+    "Estudos Orientados","HTML","Sociologia","Inglês"
 ];
 
 let materiaAtual = "";
@@ -190,7 +198,7 @@ function salvar() {
 
 function carregar() {
     let textoSalvo = localStorage.getItem(materiaAtual);
-    document.getElementById("texto").value = textoSalvo ? textoSalvo : "";
+    document.getElementById("texto").value = textoSalvo || "";
 }
 
 function sair() {
@@ -200,10 +208,26 @@ function sair() {
     document.getElementById("area-anotacao").style.display = "none";
 }
 
+/* 🔥 RELÓGIO DO COMPUTADOR */
+function atualizarRelogio() {
+    const agora = new Date();
+
+    const h = String(agora.getHours()).padStart(2, '0');
+    const m = String(agora.getMinutes()).padStart(2, '0');
+    const s = String(agora.getSeconds()).padStart(2, '0');
+
+    document.getElementById("relogio").innerText = `${h}:${m}:${s}`;
+}
+
+setInterval(atualizarRelogio, 1000);
+atualizarRelogio();
+
+/* 🔊 SOM (primeiro clique) */
 document.body.addEventListener("click", function () {
     const audio = document.getElementById("audio");
     audio.play().catch(()=>{});
 }, { once: true });
+
 </script>
 
 </body>
