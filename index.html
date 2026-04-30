@@ -11,6 +11,12 @@ body {
     background: linear-gradient(135deg, #1e90ff, #6a5acd);
     color: white;
     text-align: center;
+    transition: 0.4s;
+}
+
+/* 🌙 MODO ESCURO */
+body.dark {
+    background: #0d1117;
 }
 
 /* TÍTULO */
@@ -44,6 +50,12 @@ h1 {
     background: rgba(255,255,255,0.25);
 }
 
+/* 🌙 CARDS NO DARK */
+body.dark .materia {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
 /* ÁREA DE TEXTO */
 .anotacao {
     display: none;
@@ -58,6 +70,12 @@ textarea {
     padding: 15px;
     font-size: 16px;
     outline: none;
+}
+
+/* 🌙 TEXTAREA DARK */
+body.dark textarea {
+    background: #161b22;
+    color: #e6edf3;
 }
 
 /* BOTÕES */
@@ -91,7 +109,13 @@ button:hover {
     opacity: 0.9;
 }
 
-/* BOTÕES EXTRAS */
+/* 🌙 BOTÕES NO DARK */
+body.dark .btn {
+    background: #161b22;
+    color: white;
+}
+
+/* LINKS */
 .links {
     margin-top: 30px;
 }
@@ -149,6 +173,9 @@ materias.forEach(m => {
 
 function abrirMateria(materia) {
     materiaAtual = materia;
+
+    document.body.classList.add("dark"); // 🌙 ATIVA DARK
+
     document.getElementById("menu").style.display = "none";
     document.getElementById("area-anotacao").style.display = "block";
     document.getElementById("titulo-materia").innerText = "Anotações de " + materia;
@@ -167,6 +194,8 @@ function carregar() {
 }
 
 function sair() {
+    document.body.classList.remove("dark"); // 🌙 DESATIVA DARK
+
     document.getElementById("menu").style.display = "grid";
     document.getElementById("area-anotacao").style.display = "none";
 }
