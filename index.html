@@ -25,10 +25,25 @@ h1 {
     font-size: 2.2em;
 }
 
-/* RELÓGIO */
+/* 🔥 RELÓGIO BONITO */
+#clockBox {
+    margin-top: 10px;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
 #relogio {
-    font-size: 1.2em;
-    margin-top: 5px;
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#data {
+    font-size: 1em;
     opacity: 0.9;
 }
 
@@ -57,13 +72,13 @@ h1 {
     background: rgba(255,255,255,0.25);
 }
 
-/* 🌙 CARDS NO DARK */
+/* 🌙 CARDS DARK */
 body.dark .materia {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ÁREA DE TEXTO */
+/* ÁREA ANOTAÇÃO */
 .anotacao {
     display: none;
     padding: 20px;
@@ -79,7 +94,7 @@ textarea {
     outline: none;
 }
 
-/* 🌙 TEXTAREA DARK */
+/* DARK TEXTAREA */
 body.dark textarea {
     background: #161b22;
     color: #e6edf3;
@@ -96,33 +111,21 @@ button {
     transition: 0.3s;
 }
 
-.salvar {
-    background: #00c853;
-    color: white;
-}
-
-.sair {
-    background: #ff1744;
-    color: white;
-}
-
-.btn {
-    background: white;
-    color: #1e90ff;
-}
+.salvar { background: #00c853; color: white; }
+.sair { background: #ff1744; color: white; }
+.btn { background: white; color: #1e90ff; }
 
 button:hover {
     transform: scale(1.05);
     opacity: 0.9;
 }
 
-/* 🌙 BOTÕES NO DARK */
+/* DARK BTN */
 body.dark .btn {
     background: #161b22;
     color: white;
 }
 
-/* LINKS */
 .links {
     margin-top: 30px;
 }
@@ -136,7 +139,13 @@ body.dark .btn {
 </audio>
 
 <h1>Mochila do Victor 🎒</h1>
-<h2 id="relogio">00:00:00</h2>
+
+<!-- 🔥 RELÓGIO + DATA BONITO -->
+<div id="clockBox">
+    <div id="relogio">00:00:00</div>
+    <div id="data">00/00/0000</div>
+</div>
+
 <p>Escolha uma matéria</p>
 
 <div id="menu" class="materias"></div>
@@ -181,51 +190,60 @@ materias.forEach(m => {
 
 function abrirMateria(materia) {
     materiaAtual = materia;
-
     document.body.classList.add("dark");
 
     document.getElementById("menu").style.display = "none";
     document.getElementById("area-anotacao").style.display = "block";
     document.getElementById("titulo-materia").innerText = "Anotações de " + materia;
+
     carregar();
 }
 
 function salvar() {
-    let texto = document.getElementById("texto").value;
-    localStorage.setItem(materiaAtual, texto);
+    localStorage.setItem(materiaAtual, document.getElementById("texto").value);
     alert("Salvo!");
 }
 
 function carregar() {
-    let textoSalvo = localStorage.getItem(materiaAtual);
-    document.getElementById("texto").value = textoSalvo || "";
+    document.getElementById("texto").value =
+    localStorage.getItem(materiaAtual) || "";
 }
 
 function sair() {
     document.body.classList.remove("dark");
-
     document.getElementById("menu").style.display = "grid";
     document.getElementById("area-anotacao").style.display = "none";
 }
 
-/* 🔥 RELÓGIO DO COMPUTADOR */
-function atualizarRelogio() {
+/* 🔥 RELÓGIO + DATA BONITA */
+function atualizarClock() {
     const agora = new Date();
 
-    const h = String(agora.getHours()).padStart(2, '0');
-    const m = String(agora.getMinutes()).padStart(2, '0');
-    const s = String(agora.getSeconds()).padStart(2, '0');
+    let h = String(agora.getHours()).padStart(2,'0');
+    let m = String(agora.getMinutes()).padStart(2,'0');
+    let s = String(agora.getSeconds()).padStart(2,'0');
 
     document.getElementById("relogio").innerText = `${h}:${m}:${s}`;
+
+    const dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+    const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+                   "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+    let dia = dias[agora.getDay()];
+    let data = agora.getDate();
+    let mes = meses[agora.getMonth()];
+    let ano = agora.getFullYear();
+
+    document.getElementById("data").innerText =
+    `${dia}, ${data} de ${mes} de ${ano}`;
 }
 
-setInterval(atualizarRelogio, 1000);
-atualizarRelogio();
+setInterval(atualizarClock, 1000);
+atualizarClock();
 
-/* 🔊 SOM (primeiro clique) */
+/* 🔊 SOM */
 document.body.addEventListener("click", function () {
-    const audio = document.getElementById("audio");
-    audio.play().catch(()=>{});
+    document.getElementById("audio").play().catch(()=>{});
 }, { once: true });
 
 </script>
