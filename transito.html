@@ -3,62 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentário sobre o Trânsito</title>
+
+    <title>Comentário Profissional sobre o Trânsito</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f4f7;
+        * {
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #172554, #2563eb);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            max-width: 800px;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .titulo {
+            color: #172554;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .linha {
+            width: 70px;
+            height: 5px;
+            background: #f59e0b;
+            border-radius: 5px;
+            margin-bottom: 25px;
         }
 
         .comentario {
-            max-width: 700px;
-            margin: auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        h1 {
-            color: #1e3a5f;
-            text-align: center;
-        }
-
-        p {
-            color: #333;
+            color: #374151;
             font-size: 18px;
-            line-height: 1.7;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
         }
 
         .destaque {
-            color: #d97706;
+            color: #1d4ed8;
             font-weight: bold;
+        }
+
+        .frase-final {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 18px;
+            margin-top: 25px;
+            color: #172554;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .autor {
+            margin-top: 25px;
+            text-align: right;
+            color: #6b7280;
+            font-style: italic;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="comentario">
-        <h1>Comentário sobre o Trânsito</h1>
+    <main class="card">
 
-        <p>
-            O trânsito faz parte do nosso dia a dia e, por isso, é importante
-            que todos tenham <span class="destaque">respeito, paciência e responsabilidade</span>.
-            Motoristas, motociclistas, ciclistas e pedestres precisam seguir as
-            regras para tornar as ruas mais seguras.
+        <h1 class="titulo">Uma Reflexão sobre o Trânsito</h1>
+
+        <div class="linha"></div>
+
+        <p class="comentario">
+            O trânsito é uma parte essencial da vida em sociedade e exige
+            responsabilidade de todos os seus participantes. Motoristas,
+            motociclistas, ciclistas e pedestres compartilham o mesmo espaço
+            e, por isso, devem agir com atenção, respeito e consciência.
         </p>
 
-        <p>
-            Um trânsito melhor não depende apenas das autoridades. Cada pessoa
-            pode contribuir respeitando a sinalização, evitando atitudes
-            perigosas e tendo atenção com os outros. 
-            <strong>Respeitar no trânsito é preservar vidas.</strong>
+        <p class="comentario">
+            Mais do que simplesmente seguir as leis, é necessário compreender
+            que cada atitude no trânsito pode afetar diretamente a vida de
+            outras pessoas. Respeitar os limites de velocidade, obedecer à
+            sinalização, evitar distrações e praticar a direção defensiva são
+            atitudes que contribuem para um trânsito mais
+            <span class="destaque">seguro, organizado e humano</span>.
         </p>
-    </div>
+
+        <p class="comentario">
+            A construção de um trânsito melhor depende da participação de
+            todos. Pequenas atitudes de responsabilidade podem evitar acidentes
+            e ajudar a preservar vidas. Portanto, educação e respeito devem
+            estar presentes em todos os momentos, desde o deslocamento mais
+            curto até as viagens mais longas.
+        </p>
+
+        <div class="frase-final">
+            "No trânsito, chegar ao destino é importante, mas chegar com
+            segurança é fundamental."
+        </div>
+
+        <p class="autor">
+            Comentário sobre segurança e responsabilidade no trânsito.
+        </p>
+
+    </main>
 
 </body>
 </html>
