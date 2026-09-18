@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Comentário Profissional sobre o Trânsito</title>
+    <title>Trânsito e Mobilidade Urbana</title>
 
     <style>
         * {
@@ -15,110 +15,401 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #172554, #2563eb);
-            min-height: 100vh;
+            background: #eef2f7;
+            color: #1f2937;
+        }
+
+        /* TELA DE CARREGAMENTO */
+        #loading {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
+            color: white;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
         }
 
-        .card {
-            background: #ffffff;
-            max-width: 800px;
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .titulo {
-            color: #172554;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .linha {
-            width: 70px;
-            height: 5px;
-            background: #f59e0b;
-            border-radius: 5px;
-            margin-bottom: 25px;
-        }
-
-        .comentario {
-            color: #374151;
-            font-size: 18px;
-            line-height: 1.8;
-            text-align: justify;
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #334155;
+            border-top: 6px solid #38bdf8;
+            border-radius: 50%;
+            animation: girar 1s linear infinite;
             margin-bottom: 20px;
         }
 
-        .destaque {
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #loading h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        #loading p {
+            color: #cbd5e1;
+        }
+
+        /* CONTEÚDO */
+        header {
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #dbeafe;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
             color: #1d4ed8;
-            font-weight: bold;
+            margin-bottom: 18px;
+            font-size: 28px;
         }
 
-        .frase-final {
+        .card p {
+            font-size: 17px;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 16px;
+        }
+
+        .informacoes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .info span {
+            font-size: 35px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .info h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .destaque {
             background: #eff6ff;
-            border-left: 5px solid #2563eb;
-            padding: 18px;
-            margin-top: 25px;
-            color: #172554;
-            font-size: 19px;
-            font-weight: bold;
+            border-left: 6px solid #2563eb;
+            padding: 22px;
+            margin-top: 20px;
+            border-radius: 8px;
         }
 
-        .autor {
-            margin-top: 25px;
-            text-align: right;
-            color: #6b7280;
-            font-style: italic;
+        .destaque strong {
+            color: #1d4ed8;
+        }
+
+        ul {
+            margin-left: 25px;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .conclusao {
+            background: linear-gradient(135deg, #1d4ed8, #0f172a);
+            color: white;
+        }
+
+        .conclusao h2 {
+            color: white;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 800px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .informacoes {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <main class="card">
+    <!-- CARREGAMENTO -->
+    <div id="loading">
+        <div class="loader"></div>
 
-        <h1 class="titulo">Uma Reflexão sobre o Trânsito</h1>
+        <h2>Carregando...</h2>
 
-        <div class="linha"></div>
+        <p>Preparando informações sobre o trânsito</p>
+    </div>
 
-        <p class="comentario">
-            O trânsito é uma parte essencial da vida em sociedade e exige
-            responsabilidade de todos os seus participantes. Motoristas,
-            motociclistas, ciclistas e pedestres compartilham o mesmo espaço
-            e, por isso, devem agir com atenção, respeito e consciência.
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Trânsito e Mobilidade Urbana</h1>
+
+        <p>
+            Informação, responsabilidade e respeito são fundamentais
+            para construir um trânsito mais seguro, organizado e eficiente.
         </p>
+    </header>
 
-        <p class="comentario">
-            Mais do que simplesmente seguir as leis, é necessário compreender
-            que cada atitude no trânsito pode afetar diretamente a vida de
-            outras pessoas. Respeitar os limites de velocidade, obedecer à
-            sinalização, evitar distrações e praticar a direção defensiva são
-            atitudes que contribuem para um trânsito mais
-            <span class="destaque">seguro, organizado e humano</span>.
-        </p>
+    <main class="container">
 
-        <p class="comentario">
-            A construção de um trânsito melhor depende da participação de
-            todos. Pequenas atitudes de responsabilidade podem evitar acidentes
-            e ajudar a preservar vidas. Portanto, educação e respeito devem
-            estar presentes em todos os momentos, desde o deslocamento mais
-            curto até as viagens mais longas.
-        </p>
+        <!-- INTRODUÇÃO -->
+        <section class="card">
+            <h2>O trânsito faz parte da nossa vida</h2>
 
-        <div class="frase-final">
-            "No trânsito, chegar ao destino é importante, mas chegar com
-            segurança é fundamental."
-        </div>
+            <p>
+                O trânsito está presente diariamente na vida de milhões de
+                pessoas. Todos os dias, motoristas, motociclistas, ciclistas,
+                passageiros e pedestres utilizam as vias para trabalhar,
+                estudar, realizar atividades pessoais e se deslocar entre
+                diferentes lugares.
+            </p>
 
-        <p class="autor">
-            Comentário sobre segurança e responsabilidade no trânsito.
-        </p>
+            <p>
+                Por esse motivo, o trânsito não deve ser entendido apenas
+                como o movimento de veículos nas ruas. Ele envolve
+                comportamento humano, infraestrutura, transporte público,
+                planejamento urbano, sinalização, fiscalização e,
+                principalmente, responsabilidade coletiva.
+            </p>
+
+            <div class="destaque">
+                <strong>Um trânsito seguro depende de todos.</strong>
+                Respeitar as regras e prestar atenção ao ambiente ao redor
+                são atitudes fundamentais para reduzir situações de risco.
+            </div>
+        </section>
+
+        <!-- INFORMAÇÕES -->
+        <section class="informacoes">
+
+            <div class="info">
+                <span>🚗</span>
+                <h3>Motoristas</h3>
+                <p>
+                    Devem dirigir com atenção, respeitar a sinalização
+                    e manter uma velocidade compatível com a via.
+                </p>
+            </div>
+
+            <div class="info">
+                <span>🚶</span>
+                <h3>Pedestres</h3>
+                <p>
+                    Também fazem parte do trânsito e devem utilizar
+                    os locais apropriados para atravessar as vias.
+                </p>
+            </div>
+
+            <div class="info">
+                <span>🚲</span>
+                <h3>Ciclistas</h3>
+                <p>
+                    Precisam de espaço seguro e devem observar as regras
+                    de circulação e sinalização.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- SEGURANÇA -->
+        <section class="card">
+
+            <h2>Segurança no trânsito</h2>
+
+            <p>
+                A segurança no trânsito começa com atitudes simples.
+                Respeitar os limites de velocidade, manter distância
+                adequada dos outros veículos, utilizar o cinto de segurança
+                e evitar distrações são exemplos de comportamentos que
+                ajudam a tornar os deslocamentos mais seguros.
+            </p>
+
+            <p>
+                A atenção é especialmente importante em situações de chuva,
+                baixa visibilidade, congestionamentos e vias com grande
+                circulação de pedestres. O condutor deve adaptar sua forma
+                de dirigir às condições existentes e evitar comportamentos
+                que aumentem os riscos.
+            </p>
+
+            <ul>
+                <li>Respeitar a sinalização de trânsito.</li>
+                <li>Utilizar corretamente o cinto de segurança.</li>
+                <li>Evitar o uso do celular enquanto dirige.</li>
+                <li>Manter atenção constante na via.</li>
+                <li>Respeitar pedestres e ciclistas.</li>
+                <li>Realizar a manutenção adequada do veículo.</li>
+                <li>Dirigir de maneira preventiva e responsável.</li>
+            </ul>
+
+        </section>
+
+        <!-- CONGESTIONAMENTOS -->
+        <section class="card">
+
+            <h2>Congestionamentos e mobilidade</h2>
+
+            <p>
+                Os congestionamentos são um dos principais desafios das
+                grandes cidades. O crescimento da população, o aumento da
+                quantidade de veículos, a concentração de atividades em
+                determinadas regiões e limitações da infraestrutura podem
+                contribuir para o aumento do fluxo de trânsito.
+            </p>
+
+            <p>
+                Melhorar a mobilidade urbana exige planejamento. Investimentos
+                em transporte coletivo, infraestrutura para bicicletas,
+                calçadas adequadas, organização das vias e tecnologias de
+                gerenciamento do tráfego podem fazer parte das estratégias
+                utilizadas pelas cidades para melhorar os deslocamentos.
+            </p>
+
+        </section>
+
+        <!-- TECNOLOGIA -->
+        <section class="card">
+
+            <h2>Tecnologia e trânsito</h2>
+
+            <p>
+                A tecnologia também possui um papel importante na mobilidade
+                moderna. Sistemas de monitoramento, aplicativos de navegação,
+                semáforos inteligentes e ferramentas de análise de tráfego
+                podem auxiliar no planejamento e no acompanhamento das
+                condições das vias.
+            </p>
+
+            <p>
+                Entretanto, a tecnologia não substitui a responsabilidade
+                individual. Mesmo utilizando aplicativos ou sistemas de
+                navegação, o condutor deve permanecer atento à sinalização,
+                aos demais veículos e às condições reais da estrada.
+            </p>
+
+        </section>
+
+        <!-- CONCLUSÃO -->
+        <section class="card conclusao">
+
+            <h2>Conclusão</h2>
+
+            <p>
+                Construir um trânsito melhor é uma responsabilidade
+                compartilhada. Não depende somente de novas estradas,
+                veículos modernos ou sistemas tecnológicos. Depende também
+                de educação, respeito, planejamento e atitudes responsáveis
+                por parte de todos que utilizam as vias.
+            </p>
+
+            <p>
+                Quando cada pessoa entende que suas escolhas podem afetar
+                outras vidas, o trânsito passa a ser visto não apenas como
+                um espaço de deslocamento, mas como um ambiente que exige
+                cooperação e respeito.
+            </p>
+
+            <div class="destaque">
+                <strong>
+                    Respeitar as regras de trânsito é uma atitude de
+                    responsabilidade com a própria vida e com a vida dos outros.
+                </strong>
+            </div>
+
+        </section>
 
     </main>
+
+    <footer>
+        <p>© 2026 - Projeto Trânsito e Mobilidade Urbana</p>
+        <p>Informação e conscientização para um trânsito mais seguro.</p>
+    </footer>
+
+    <!-- SCRIPT DO CARREGAMENTO -->
+    <script>
+        window.addEventListener("load", function () {
+
+            setTimeout(function () {
+
+                const loading = document.getElementById("loading");
+
+                loading.style.opacity = "0";
+
+                setTimeout(function () {
+                    loading.style.display = "none";
+                }, 600);
+
+            }, 1500);
+
+        });
+    </script>
 
 </body>
 </html>
