@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,34 +14,42 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #eef2f7;
             color: #1f2937;
         }
 
-        /* TELA DE CARREGAMENTO */
+        /* =========================
+           TELA DE CARREGAMENTO
+        ========================== */
+
         #loading {
             position: fixed;
             inset: 0;
-            background: #0f172a;
+            background: linear-gradient(135deg, #020617, #1e3a8a);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             z-index: 9999;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.7s ease;
         }
 
         .loader {
-            width: 60px;
-            height: 60px;
-            border: 6px solid #334155;
-            border-top: 6px solid #38bdf8;
+            width: 70px;
+            height: 70px;
+            border: 7px solid #334155;
+            border-top: 7px solid #38bdf8;
+            border-right: 7px solid #60a5fa;
             border-radius: 50%;
             animation: girar 1s linear infinite;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         @keyframes girar {
@@ -54,110 +63,149 @@
         }
 
         #loading h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         #loading p {
             color: #cbd5e1;
+            font-size: 16px;
         }
 
-        /* CONTEÚDO */
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
         header {
-            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.85),
+                    rgba(29, 78, 216, 0.90)
+                ),
+                url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000")
+                center/cover;
+
             color: white;
-            padding: 70px 20px;
+            padding: 100px 20px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
         header p {
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
-            font-size: 18px;
-            line-height: 1.7;
+            font-size: 19px;
+            line-height: 1.8;
             color: #dbeafe;
         }
 
+        /* =========================
+           CONTEÚDO
+        ========================== */
+
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1150px;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
         .card {
             background: white;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
 
         .card h2 {
             color: #1d4ed8;
-            margin-bottom: 18px;
-            font-size: 28px;
+            margin-bottom: 22px;
+            font-size: 30px;
         }
 
         .card p {
             font-size: 17px;
-            line-height: 1.8;
+            line-height: 1.9;
             text-align: justify;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
+
+        /* =========================
+           CARDS DE INFORMAÇÃO
+        ========================== */
 
         .informacoes {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 30px;
         }
 
         .info {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .info:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
         .info span {
-            font-size: 35px;
+            font-size: 42px;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .info h3 {
             color: #1e3a8a;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 21px;
         }
 
         .info p {
             color: #64748b;
-            line-height: 1.6;
+            line-height: 1.7;
         }
+
+        /* =========================
+           DESTAQUES
+        ========================== */
 
         .destaque {
             background: #eff6ff;
             border-left: 6px solid #2563eb;
             padding: 22px;
-            margin-top: 20px;
-            border-radius: 8px;
+            margin-top: 25px;
+            border-radius: 10px;
+            line-height: 1.7;
         }
 
         .destaque strong {
             color: #1d4ed8;
         }
 
+        /* =========================
+           LISTAS
+        ========================== */
+
         ul {
-            margin-left: 25px;
+            margin: 20px 0 20px 25px;
             line-height: 2;
             font-size: 17px;
         }
+
+        /* =========================
+           SEÇÃO ESPECIAL
+        ========================== */
 
         .conclusao {
             background: linear-gradient(135deg, #1d4ed8, #0f172a);
@@ -168,21 +216,50 @@
             color: white;
         }
 
+        .conclusao p {
+            color: #e2e8f0;
+        }
+
+        .conclusao .destaque {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: #38bdf8;
+        }
+
+        .conclusao .destaque strong {
+            color: #bae6fd;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
         footer {
-            background: #0f172a;
+            background: #020617;
             color: #cbd5e1;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
+            padding: 35px 20px;
         }
 
         footer p {
-            margin: 5px;
+            margin: 8px;
         }
 
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
         @media (max-width: 800px) {
+
+            header {
+                padding: 70px 20px;
+            }
+
             header h1 {
-                font-size: 32px;
+                font-size: 34px;
+            }
+
+            header p {
+                font-size: 17px;
             }
 
             .informacoes {
@@ -192,171 +269,463 @@
             .card {
                 padding: 25px;
             }
+
+            .card h2 {
+                font-size: 25px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- CARREGAMENTO -->
+    <!-- =========================
+         TELA DE CARREGAMENTO
+    ========================== -->
+
     <div id="loading">
+
         <div class="loader"></div>
 
         <h2>Carregando...</h2>
 
-        <p>Preparando informações sobre o trânsito</p>
+        <p>
+            Preparando informações sobre trânsito e mobilidade urbana
+        </p>
+
     </div>
 
-    <!-- CABEÇALHO -->
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header>
+
         <h1>Trânsito e Mobilidade Urbana</h1>
 
         <p>
-            Informação, responsabilidade e respeito são fundamentais
-            para construir um trânsito mais seguro, organizado e eficiente.
+            Informação, educação, responsabilidade e respeito são
+            fundamentais para construir um trânsito mais seguro,
+            organizado, acessível e eficiente para toda a sociedade.
         </p>
+
     </header>
+
 
     <main class="container">
 
-        <!-- INTRODUÇÃO -->
+
+        <!-- =========================
+             INTRODUÇÃO
+        ========================== -->
+
         <section class="card">
+
             <h2>O trânsito faz parte da nossa vida</h2>
 
             <p>
-                O trânsito está presente diariamente na vida de milhões de
-                pessoas. Todos os dias, motoristas, motociclistas, ciclistas,
-                passageiros e pedestres utilizam as vias para trabalhar,
-                estudar, realizar atividades pessoais e se deslocar entre
-                diferentes lugares.
+                O trânsito está presente diariamente na vida de milhões
+                de pessoas. Todos os dias, motoristas, motociclistas,
+                ciclistas, passageiros e pedestres utilizam as vias para
+                trabalhar, estudar, realizar atividades pessoais e se
+                deslocar entre diferentes lugares.
             </p>
 
             <p>
                 Por esse motivo, o trânsito não deve ser entendido apenas
-                como o movimento de veículos nas ruas. Ele envolve
-                comportamento humano, infraestrutura, transporte público,
-                planejamento urbano, sinalização, fiscalização e,
-                principalmente, responsabilidade coletiva.
+                como o movimento de veículos pelas ruas e avenidas. Ele
+                envolve comportamento humano, infraestrutura, transporte
+                público, planejamento urbano, sinalização, fiscalização,
+                tecnologia e, principalmente, responsabilidade coletiva.
+            </p>
+
+            <p>
+                Uma cidade com um sistema de mobilidade bem planejado pode
+                facilitar o deslocamento da população e contribuir para
+                uma melhor qualidade de vida. Quando as vias são organizadas
+                e os usuários respeitam as regras, o deslocamento tende a
+                ocorrer de maneira mais segura e previsível.
+            </p>
+
+            <p>
+                Entretanto, quando as regras são ignoradas, pequenas
+                atitudes podem criar situações perigosas. Uma ultrapassagem
+                realizada de maneira inadequada, o excesso de velocidade,
+                a distração ao volante ou o desrespeito à sinalização podem
+                colocar diversas pessoas em risco.
             </p>
 
             <div class="destaque">
-                <strong>Um trânsito seguro depende de todos.</strong>
-                Respeitar as regras e prestar atenção ao ambiente ao redor
-                são atitudes fundamentais para reduzir situações de risco.
+
+                <strong>
+                    Um trânsito seguro depende de todos.
+                </strong>
+
+                Respeitar as regras, manter a atenção e considerar os
+                demais usuários das vias são atitudes essenciais para
+                reduzir riscos e melhorar a convivência no trânsito.
+
             </div>
+
         </section>
 
-        <!-- INFORMAÇÕES -->
+
+        <!-- =========================
+             USUÁRIOS DO TRÂNSITO
+        ========================== -->
+
         <section class="informacoes">
 
             <div class="info">
+
                 <span>🚗</span>
+
                 <h3>Motoristas</h3>
+
                 <p>
-                    Devem dirigir com atenção, respeitar a sinalização
-                    e manter uma velocidade compatível com a via.
+                    Devem dirigir com atenção, respeitar a sinalização,
+                    manter distância segura e adaptar a condução às
+                    condições da via.
                 </p>
+
             </div>
 
+
             <div class="info">
+
                 <span>🚶</span>
+
                 <h3>Pedestres</h3>
+
                 <p>
                     Também fazem parte do trânsito e devem utilizar
-                    os locais apropriados para atravessar as vias.
+                    os locais adequados para circulação e travessia.
                 </p>
+
             </div>
 
+
             <div class="info">
+
                 <span>🚲</span>
+
                 <h3>Ciclistas</h3>
+
                 <p>
-                    Precisam de espaço seguro e devem observar as regras
-                    de circulação e sinalização.
+                    Precisam de infraestrutura adequada e devem observar
+                    as regras de circulação e sinalização.
                 </p>
+
             </div>
 
         </section>
 
-        <!-- SEGURANÇA -->
+
+        <!-- =========================
+             SEGURANÇA
+        ========================== -->
+
         <section class="card">
 
             <h2>Segurança no trânsito</h2>
 
             <p>
                 A segurança no trânsito começa com atitudes simples.
-                Respeitar os limites de velocidade, manter distância
-                adequada dos outros veículos, utilizar o cinto de segurança
-                e evitar distrações são exemplos de comportamentos que
-                ajudam a tornar os deslocamentos mais seguros.
+                Respeitar os limites de velocidade, manter uma distância
+                adequada dos outros veículos, utilizar o cinto de
+                segurança e evitar distrações são comportamentos
+                importantes para tornar os deslocamentos mais seguros.
             </p>
 
             <p>
-                A atenção é especialmente importante em situações de chuva,
-                baixa visibilidade, congestionamentos e vias com grande
-                circulação de pedestres. O condutor deve adaptar sua forma
-                de dirigir às condições existentes e evitar comportamentos
-                que aumentem os riscos.
+                O condutor também precisa observar constantemente o
+                ambiente ao seu redor. A presença de pedestres, ciclistas,
+                motociclistas, crianças, idosos e outros veículos exige
+                atenção redobrada, especialmente em áreas residenciais,
+                escolares e comerciais.
+            </p>
+
+            <p>
+                As condições climáticas também podem alterar a segurança
+                das vias. Chuva intensa, neblina, pista molhada e baixa
+                visibilidade exigem uma condução mais cuidadosa e adequada
+                às condições encontradas.
+            </p>
+
+            <p>
+                Outro fator importante é a manutenção do veículo. Pneus,
+                freios, iluminação, suspensão e outros componentes precisam
+                estar em condições adequadas para que o veículo possa
+                circular com segurança.
             </p>
 
             <ul>
-                <li>Respeitar a sinalização de trânsito.</li>
-                <li>Utilizar corretamente o cinto de segurança.</li>
-                <li>Evitar o uso do celular enquanto dirige.</li>
-                <li>Manter atenção constante na via.</li>
-                <li>Respeitar pedestres e ciclistas.</li>
-                <li>Realizar a manutenção adequada do veículo.</li>
-                <li>Dirigir de maneira preventiva e responsável.</li>
+
+                <li>
+                    Respeitar a sinalização de trânsito.
+                </li>
+
+                <li>
+                    Utilizar corretamente o cinto de segurança.
+                </li>
+
+                <li>
+                    Evitar o uso do celular enquanto dirige.
+                </li>
+
+                <li>
+                    Manter atenção constante na via.
+                </li>
+
+                <li>
+                    Respeitar pedestres e ciclistas.
+                </li>
+
+                <li>
+                    Realizar a manutenção adequada do veículo.
+                </li>
+
+                <li>
+                    Adaptar a velocidade às condições da via.
+                </li>
+
+                <li>
+                    Praticar uma condução preventiva e responsável.
+                </li>
+
             </ul>
 
         </section>
 
-        <!-- CONGESTIONAMENTOS -->
+
+        <!-- =========================
+             EDUCAÇÃO
+        ========================== -->
+
         <section class="card">
 
-            <h2>Congestionamentos e mobilidade</h2>
+            <h2>Educação para o trânsito</h2>
 
             <p>
-                Os congestionamentos são um dos principais desafios das
-                grandes cidades. O crescimento da população, o aumento da
-                quantidade de veículos, a concentração de atividades em
-                determinadas regiões e limitações da infraestrutura podem
-                contribuir para o aumento do fluxo de trânsito.
+                A educação para o trânsito possui um papel importante na
+                formação de cidadãos conscientes. Aprender desde cedo sobre
+                respeito, atenção e convivência nas vias pode contribuir
+                para o desenvolvimento de comportamentos mais responsáveis.
             </p>
 
             <p>
-                Melhorar a mobilidade urbana exige planejamento. Investimentos
-                em transporte coletivo, infraestrutura para bicicletas,
-                calçadas adequadas, organização das vias e tecnologias de
-                gerenciamento do tráfego podem fazer parte das estratégias
-                utilizadas pelas cidades para melhorar os deslocamentos.
+                Crianças e adolescentes precisam compreender que o trânsito
+                não é formado apenas por carros. Pedestres, bicicletas,
+                motocicletas, ônibus e outros meios de transporte fazem
+                parte do mesmo espaço urbano e precisam conviver de maneira
+                organizada.
+            </p>
+
+            <p>
+                A conscientização também deve alcançar os adultos. Ter
+                experiência ao dirigir não significa que todas as situações
+                possam ser tratadas de maneira automática. A atenção precisa
+                permanecer presente durante todo o deslocamento.
+            </p>
+
+            <div class="destaque">
+
+                <strong>
+                    Educação transforma comportamento.
+                </strong>
+
+                Um cidadão consciente entende que respeitar o próximo
+                é uma parte fundamental da segurança no trânsito.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONGESTIONAMENTOS
+        ========================== -->
+
+        <section class="card">
+
+            <h2>Congestionamentos e mobilidade urbana</h2>
+
+            <p>
+                Os congestionamentos são um dos desafios enfrentados por
+                muitas cidades. O crescimento urbano, o aumento da quantidade
+                de veículos, a concentração de atividades em determinadas
+                regiões e as características da infraestrutura podem
+                influenciar o fluxo de trânsito.
+            </p>
+
+            <p>
+                Os congestionamentos podem aumentar o tempo necessário para
+                realizar deslocamentos e também podem afetar atividades
+                profissionais, comerciais e pessoais. Por isso, a mobilidade
+                urbana precisa ser pensada de forma integrada.
+            </p>
+
+            <p>
+                Melhorar a mobilidade pode envolver investimentos em
+                transporte coletivo, calçadas, ciclovias, sinalização,
+                organização das vias, planejamento urbano e sistemas de
+                gerenciamento do tráfego.
+            </p>
+
+            <p>
+                O planejamento também precisa considerar diferentes grupos
+                da população. Pessoas com deficiência, idosos, crianças e
+                pessoas que dependem do transporte público precisam ter
+                condições adequadas para se deslocar pela cidade.
             </p>
 
         </section>
 
-        <!-- TECNOLOGIA -->
+
+        <!-- =========================
+             TRANSPORTE PÚBLICO
+        ========================== -->
+
         <section class="card">
 
-            <h2>Tecnologia e trânsito</h2>
+            <h2>A importância do transporte público</h2>
 
             <p>
-                A tecnologia também possui um papel importante na mobilidade
-                moderna. Sistemas de monitoramento, aplicativos de navegação,
-                semáforos inteligentes e ferramentas de análise de tráfego
-                podem auxiliar no planejamento e no acompanhamento das
-                condições das vias.
+                O transporte público é uma parte importante da mobilidade
+                urbana. Ônibus, metrôs, trens e outros sistemas coletivos
+                podem transportar grandes quantidades de pessoas e atender
+                diferentes regiões das cidades.
             </p>
 
             <p>
-                Entretanto, a tecnologia não substitui a responsabilidade
-                individual. Mesmo utilizando aplicativos ou sistemas de
-                navegação, o condutor deve permanecer atento à sinalização,
-                aos demais veículos e às condições reais da estrada.
+                Para que o transporte coletivo seja utilizado de maneira
+                eficiente, fatores como frequência, segurança, acessibilidade,
+                conforto e integração entre diferentes linhas e modalidades
+                precisam ser considerados no planejamento.
+            </p>
+
+            <p>
+                A existência de alternativas de deslocamento permite que
+                diferentes pessoas escolham o meio de transporte mais
+                adequado para suas necessidades. Essa diversidade pode
+                contribuir para uma mobilidade urbana mais equilibrada.
             </p>
 
         </section>
 
-        <!-- CONCLUSÃO -->
+
+        <!-- =========================
+             MEIO AMBIENTE
+        ========================== -->
+
+        <section class="card">
+
+            <h2>Trânsito e meio ambiente</h2>
+
+            <p>
+                A mobilidade urbana também possui relação com questões
+                ambientais. A circulação de veículos pode estar associada
+                ao consumo de combustíveis, à emissão de poluentes e ao
+                nível de ruído nas áreas urbanas.
+            </p>
+
+            <p>
+                Por esse motivo, políticas de mobilidade podem considerar
+                alternativas como transporte coletivo, deslocamentos a pé,
+                bicicletas e tecnologias de veículos menos poluentes.
+            </p>
+
+            <p>
+                Além da escolha do meio de transporte, a manutenção correta
+                dos veículos e uma condução eficiente também são aspectos
+                relacionados ao uso responsável dos recursos.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             TECNOLOGIA
+        ========================== -->
+
+        <section class="card">
+
+            <h2>Tecnologia aplicada ao trânsito</h2>
+
+            <p>
+                A tecnologia possui um papel cada vez mais presente na
+                mobilidade moderna. Sistemas de monitoramento, aplicativos
+                de navegação, câmeras, sensores, semáforos inteligentes
+                e ferramentas de análise de dados podem auxiliar na gestão
+                do tráfego.
+            </p>
+
+            <p>
+                Aplicativos de navegação também podem ajudar usuários a
+                identificar alterações no fluxo das vias e planejar seus
+                deslocamentos. Entretanto, essas ferramentas devem ser
+                utilizadas com responsabilidade e nunca devem substituir
+                a atenção do condutor.
+            </p>
+
+            <p>
+                Mesmo utilizando tecnologia, o motorista precisa observar
+                a sinalização física, as condições da via e o comportamento
+                dos demais usuários. A tecnologia é uma ferramenta de apoio,
+                enquanto a responsabilidade continua sendo fundamental.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             RESPONSABILIDADE
+        ========================== -->
+
+        <section class="card">
+
+            <h2>Responsabilidade de cada cidadão</h2>
+
+            <p>
+                Um trânsito organizado depende da participação de todos.
+                Cada pessoa possui responsabilidades diferentes, mas todas
+                estão relacionadas ao respeito pela vida e pelo espaço
+                compartilhado.
+            </p>
+
+            <p>
+                O motorista deve conduzir com atenção. O pedestre deve
+                observar as condições para realizar uma travessia segura.
+                O ciclista precisa conhecer as regras de circulação e todos
+                devem respeitar os demais usuários das vias.
+            </p>
+
+            <p>
+                Atitudes como dar passagem quando necessário, respeitar
+                faixas de pedestres, evitar disputas no trânsito e manter
+                a calma diante de situações de congestionamento podem
+                contribuir para uma convivência mais respeitosa.
+            </p>
+
+            <div class="destaque">
+
+                <strong>
+                    O trânsito é um espaço compartilhado.
+                </strong>
+
+                Por isso, respeito e responsabilidade devem fazer parte
+                da rotina de todos.
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONCLUSÃO
+        ========================== -->
+
         <section class="card conclusao">
 
             <h2>Conclusão</h2>
@@ -364,7 +733,7 @@
             <p>
                 Construir um trânsito melhor é uma responsabilidade
                 compartilhada. Não depende somente de novas estradas,
-                veículos modernos ou sistemas tecnológicos. Depende também
+                veículos modernos ou sistemas tecnológicos. Também depende
                 de educação, respeito, planejamento e atitudes responsáveis
                 por parte de todos que utilizam as vias.
             </p>
@@ -373,27 +742,63 @@
                 Quando cada pessoa entende que suas escolhas podem afetar
                 outras vidas, o trânsito passa a ser visto não apenas como
                 um espaço de deslocamento, mas como um ambiente que exige
-                cooperação e respeito.
+                cooperação, atenção e respeito.
+            </p>
+
+            <p>
+                A mudança começa em atitudes cotidianas. Respeitar uma
+                sinalização, reduzir a velocidade quando necessário,
+                permitir a passagem de um pedestre ou simplesmente manter
+                a atenção na direção são exemplos de ações que fazem parte
+                de uma cultura de segurança.
+            </p>
+
+            <p>
+                Portanto, falar sobre trânsito é também falar sobre
+                cidadania. Um trânsito mais seguro e organizado depende
+                da participação consciente da sociedade, do planejamento
+                adequado das cidades e do compromisso de cada pessoa em
+                respeitar as regras e os demais usuários.
             </p>
 
             <div class="destaque">
+
                 <strong>
-                    Respeitar as regras de trânsito é uma atitude de
-                    responsabilidade com a própria vida e com a vida dos outros.
+                    "No trânsito, cada escolha importa. Respeitar as regras,
+                    manter a atenção e valorizar a vida são atitudes que
+                    ajudam a construir uma mobilidade mais segura para todos."
                 </strong>
+
             </div>
 
         </section>
 
     </main>
 
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
     <footer>
-        <p>© 2026 - Projeto Trânsito e Mobilidade Urbana</p>
-        <p>Informação e conscientização para um trânsito mais seguro.</p>
+
+        <p>
+            © 2026 - Projeto Trânsito e Mobilidade Urbana
+        </p>
+
+        <p>
+            Educação • Segurança • Responsabilidade • Mobilidade
+        </p>
+
     </footer>
 
-    <!-- SCRIPT DO CARREGAMENTO -->
+
+    <!-- =========================
+         SCRIPT DO CARREGAMENTO
+    ========================== -->
+
     <script>
+
         window.addEventListener("load", function () {
 
             setTimeout(function () {
@@ -403,13 +808,17 @@
                 loading.style.opacity = "0";
 
                 setTimeout(function () {
-                    loading.style.display = "none";
-                }, 600);
 
-            }, 1500);
+                    loading.style.display = "none";
+
+                }, 700);
+
+            }, 1800);
 
         });
+
     </script>
 
 </body>
+
 </html>
