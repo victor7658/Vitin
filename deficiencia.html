@@ -115,6 +115,59 @@
             background: linear-gradient(90deg, #087fc1, #43c6ff);
         }
 
+        /* BENGALAS */
+
+        .bengalas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .bengala {
+            padding: 22px;
+            border-radius: 15px;
+            color: #222;
+            border-left: 8px solid;
+            background: #f5f5f5;
+        }
+
+        .bengala h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .bengala p {
+            margin-bottom: 8px;
+        }
+
+        .bengala-branca {
+            border-color: #222;
+        }
+
+        .bengala-verde {
+            border-color: #159447;
+        }
+
+        .bengala-vermelha {
+            border-color: #d62828;
+        }
+
+        .bengala-branca-vermelha {
+            border-color: #d62828;
+            background: linear-gradient(
+                to right,
+                #f5f5f5 0%,
+                #f5f5f5 65%,
+                #ffe3e3 65%,
+                #ffe3e3 100%
+            );
+        }
+
+        .bengala-amarela {
+            border-color: #e6b800;
+        }
+
         .video {
             position: relative;
             width: 100%;
@@ -188,6 +241,10 @@
 
             .numero {
                 font-size: 30px;
+            }
+
+            .bengalas {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -275,7 +332,6 @@
                 </div>
             </div>
 
-
             <div class="barra">
                 <div class="barra-titulo">
                     <span>Nordeste</span>
@@ -287,7 +343,6 @@
                          style="width:100%"></div>
                 </div>
             </div>
-
 
             <div class="barra">
                 <div class="barra-titulo">
@@ -301,7 +356,6 @@
                 </div>
             </div>
 
-
             <div class="barra">
                 <div class="barra-titulo">
                     <span>Sudeste</span>
@@ -313,7 +367,6 @@
                          style="width:79.6%"></div>
                 </div>
             </div>
-
 
             <div class="barra">
                 <div class="barra-titulo">
@@ -349,6 +402,87 @@
     </section>
 
 
+    <!-- CORES DAS BENGALAS -->
+    <section class="card">
+
+        <h2>🦯 Cores das bengalas e seus significados</h2>
+
+        <p>
+            As cores das bengalas podem ajudar a identificar diferentes
+            necessidades relacionadas à deficiência visual. Elas são
+            utilizadas como uma forma de facilitar a identificação e
+            promover maior segurança e acessibilidade.
+        </p>
+
+        <div class="bengalas">
+
+            <div class="bengala bengala-branca">
+
+                <h3>⚪ Bengala branca</h3>
+
+                <p>
+                    Geralmente identifica uma pessoa com
+                    <strong>cegueira</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="bengala bengala-verde">
+
+                <h3>🟢 Bengala verde</h3>
+
+                <p>
+                    Geralmente utilizada para identificar uma pessoa
+                    com <strong>baixa visão</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="bengala bengala-branca-vermelha">
+
+                <h3>⚪🔴 Bengala branca e vermelha</h3>
+
+                <p>
+                    É utilizada para identificar pessoas com
+                    <strong>surdocegueira</strong>, ou seja, pessoas que
+                    possuem deficiência visual e auditiva.
+                </p>
+
+            </div>
+
+
+            <div class="bengala bengala-amarela">
+
+                <h3>🟡 Bengala amarela</h3>
+
+                <p>
+                    Em alguns locais, a bengala amarela também é utilizada
+                    para identificação relacionada à deficiência visual.
+                    Seu significado pode variar conforme o país ou região.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="fonte">
+
+            <strong>Importante:</strong>
+
+            <p>
+                As cores podem variar de acordo com normas e práticas
+                adotadas em diferentes países e regiões. A cor da bengala
+                não deve ser usada para fazer suposições além de sua função
+                de identificação e auxílio à mobilidade.
+            </p>
+
+        </div>
+
+    </section>
+
+
     <!-- VÍDEO -->
     <section class="card">
 
@@ -361,7 +495,6 @@
 
         <div class="video">
 
-            <!-- VÍDEO ENVIADO PELO USUÁRIO -->
             <iframe
                 src="https://www.youtube.com/embed/zg6dk6F3Cp8"
                 title="Vídeo de conscientização sobre pessoas com deficiência"
@@ -401,14 +534,6 @@
 
 
 <footer>
-
-    <p>
-    </p>
-
-    <p>
-        
-    </p>
-    </p>
 
 </footer>
 
