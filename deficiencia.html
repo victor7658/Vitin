@@ -1,0 +1,422 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dia da Pessoa com Deficiência</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #071b33, #0b4775);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.35);
+            padding: 35px 20px;
+            text-align: center;
+            border-bottom: 2px solid #39b7ff;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 19px;
+            color: #d8f1ff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            color: #222;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            color: #075b91;
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, #0a75b9, #06385e);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .destaque h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .numero {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .grafico {
+            width: 100%;
+            max-width: 750px;
+            margin: 25px auto;
+            display: block;
+        }
+
+        .barra {
+            margin: 20px 0;
+        }
+
+        .barra-titulo {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .barra-fundo {
+            background: #e5e5e5;
+            height: 35px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .barra-preenchida {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #087fc1, #43c6ff);
+        }
+
+        .video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .video iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            left: 0;
+            top: 0;
+        }
+
+        .mensagem {
+            text-align: center;
+            padding: 30px;
+            background: #eaf8ff;
+            border-radius: 15px;
+            color: #06385e;
+            margin-top: 20px;
+        }
+
+        .mensagem h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .fonte {
+            background: #f3f3f3;
+            padding: 20px;
+            border-left: 5px solid #087fc1;
+            margin-top: 20px;
+        }
+
+        .fonte a {
+            color: #0066a1;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #041321;
+            color: #c9e8f7;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card h2 {
+                font-size: 23px;
+            }
+
+            .numero {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>♿ Dia da Pessoa com Deficiência</h1>
+    <p>Inclusão, acessibilidade, respeito e igualdade</p>
+</header>
+
+<div class="container">
+
+    <!-- SOBRE A DATA -->
+    <section class="card">
+
+        <h2>📅 21 de Setembro</h2>
+
+        <p>
+            O dia 21 de setembro é o
+            <strong>Dia Nacional de Luta da Pessoa com Deficiência</strong>
+            no Brasil.
+        </p>
+
+        <p>
+            A data foi instituída pela Lei nº 11.133/2005 e tem como
+            objetivo aumentar a conscientização sobre inclusão,
+            acessibilidade, respeito e direitos das pessoas com deficiência.
+        </p>
+
+        <div class="destaque">
+
+            <h3>Inclusão é para todos!</h3>
+
+            <p>
+                Uma sociedade inclusiva busca eliminar barreiras e garantir
+                que todas as pessoas possam participar da educação, do
+                trabalho, da cultura, do esporte e da vida social.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DADOS ESTATÍSTICOS -->
+    <section class="card">
+
+        <h2>📊 Dados estatísticos</h2>
+
+        <p>
+            Segundo o <strong>Censo Demográfico 2022 do IBGE</strong>,
+            o Brasil possuía aproximadamente:
+        </p>
+
+        <div class="destaque">
+
+            <h3>Pessoas com deficiência</h3>
+
+            <div class="numero">14,4 milhões</div>
+
+            <p>
+                Aproximadamente <strong>7,3%</strong> da população
+                brasileira com 2 anos ou mais.
+            </p>
+
+        </div>
+
+        <h3 style="margin-top:30px; color:#075b91;">
+            Percentual de pessoas com deficiência por região
+        </h3>
+
+        <div class="grafico">
+
+            <div class="barra">
+                <div class="barra-titulo">
+                    <span>Norte</span>
+                    <span>8,4%</span>
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra-preenchida"
+                         style="width:84%"></div>
+                </div>
+            </div>
+
+
+            <div class="barra">
+                <div class="barra-titulo">
+                    <span>Nordeste</span>
+                    <span>10,3%</span>
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra-preenchida"
+                         style="width:100%"></div>
+                </div>
+            </div>
+
+
+            <div class="barra">
+                <div class="barra-titulo">
+                    <span>Centro-Oeste</span>
+                    <span>8,6%</span>
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra-preenchida"
+                         style="width:83.5%"></div>
+                </div>
+            </div>
+
+
+            <div class="barra">
+                <div class="barra-titulo">
+                    <span>Sudeste</span>
+                    <span>8,2%</span>
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra-preenchida"
+                         style="width:79.6%"></div>
+                </div>
+            </div>
+
+
+            <div class="barra">
+                <div class="barra-titulo">
+                    <span>Sul</span>
+                    <span>8,8%</span>
+                </div>
+
+                <div class="barra-fundo">
+                    <div class="barra-preenchida"
+                         style="width:85.4%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fonte">
+
+            <strong>Fonte dos dados:</strong>
+
+            <p>
+                IBGE — Censo Demográfico 2022 / Pessoas com deficiência.
+            </p>
+
+            <a href="https://www.ibge.gov.br/estatisticas/sociais/populacao/34889-pessoas-com-deficiencia-e-as-desigualdades-sociais-no-brasil.html"
+               target="_blank">
+
+                Acessar dados oficiais do IBGE
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONSCIENTIZAÇÃO -->
+    <section class="card">
+
+        <h2>🎥 Vídeo de conscientização</h2>
+
+        <p>
+            O vídeo abaixo apresenta uma mensagem de conscientização
+            sobre respeito, inclusão e acessibilidade.
+        </p>
+
+        <div class="video">
+
+            <!-- TROQUE O LINK PELO SEU VÍDEO -->
+            <iframe
+                src="https://www.youtube.com/embed/SEU_VIDEO_AQUI"
+                title="Vídeo de conscientização"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        <p style="margin-top:20px;">
+            <strong>Importante:</strong> substitua
+            <em>SEU_VIDEO_AQUI</em> pelo código do vídeo do YouTube
+            que você deseja apresentar.
+        </p>
+
+    </section>
+
+
+    <!-- MENSAGEM FINAL -->
+    <section class="card">
+
+        <div class="mensagem">
+
+            <h3>💙 Respeito e inclusão</h3>
+
+            <p>
+                A deficiência não deve ser motivo de exclusão.
+                Acessibilidade, respeito e igualdade são fundamentais
+                para uma sociedade onde todos possam participar.
+            </p>
+
+            <p>
+                <strong>
+                    Inclusão começa quando eliminamos as barreiras.
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+
+    <p>
+        Projeto escolar — Dia Nacional de Luta da Pessoa com Deficiência
+    </p>
+
+    <p>
+        Dados estatísticos: IBGE — Censo Demográfico 2022
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
