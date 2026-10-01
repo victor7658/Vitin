@@ -16,69 +16,122 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #eaf4ff;
+            background-color: #eaf4ff;
             color: #222;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
-            background: #0066cc;
+            background: linear-gradient(135deg, #0066cc, #003b73);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         header h1 {
-            font-size: 36px;
+            font-size: 40px;
             margin-bottom: 10px;
         }
 
         header p {
-            font-size: 18px;
+            font-size: 19px;
+        }
+
+        nav {
+            background-color: #002b55;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8fd3ff;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 20px;
         }
 
         .box {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
         }
 
         h2 {
             color: #0066cc;
             margin-bottom: 15px;
+            font-size: 28px;
         }
 
-        .comentario {
-            background: #f4f9ff;
+        h3 {
+            color: #004c99;
+            margin-bottom: 10px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #f5faff;
+            padding: 22px;
+            border-radius: 12px;
             border-left: 5px solid #0066cc;
-            padding: 18px;
-            margin-top: 15px;
-            border-radius: 8px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+        }
+
+        .card ul {
+            margin-left: 20px;
+        }
+
+        .alerta {
+            background-color: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .importante {
+            background-color: #e8f5e9;
+            border-left: 6px solid #2e7d32;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         textarea {
             width: 100%;
-            height: 120px;
-            padding: 12px;
+            height: 130px;
+            padding: 15px;
             border: 2px solid #0066cc;
             border-radius: 10px;
             font-size: 16px;
             resize: none;
+            margin-top: 10px;
         }
 
         button {
-            background: #0066cc;
+            background-color: #0066cc;
             color: white;
             border: none;
-            padding: 12px 22px;
+            padding: 13px 24px;
             margin-top: 12px;
             border-radius: 8px;
             cursor: pointer;
@@ -86,58 +139,70 @@
         }
 
         button:hover {
-            background: #004c99;
+            background-color: #004c99;
         }
 
         .comentario-publicado {
-            background: #f1f7ff;
+            background-color: #f1f7ff;
             margin-top: 15px;
-            padding: 15px;
+            padding: 18px;
             border-radius: 10px;
             border-left: 5px solid #0066cc;
         }
 
         .excluir {
-            background: #d9534f;
+            background-color: #d9534f;
             padding: 7px 12px;
             font-size: 14px;
         }
 
         .quiz {
-            background: #f7fbff;
+            background-color: #f5faff;
             padding: 20px;
+            margin-top: 20px;
             border-radius: 12px;
-            margin-top: 15px;
-        }
-
-        .quiz h3 {
-            color: #004c99;
-            margin-bottom: 10px;
         }
 
         .quiz label {
             display: block;
-            padding: 10px;
-            margin: 6px 0;
-            background: white;
+            background-color: white;
             border: 1px solid #ccc;
+            padding: 12px;
+            margin: 7px 0;
             border-radius: 8px;
             cursor: pointer;
         }
 
+        .quiz label:hover {
+            background-color: #eaf4ff;
+        }
+
         #resultado {
             margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
             text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #0066cc;
         }
 
         footer {
-            background: #003b73;
+            background-color: #003b73;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
         }
     </style>
 </head>
@@ -145,57 +210,323 @@
 <body>
 
 <header>
-    <h1>Saúde e Segurança nas Escolas</h1>
-    <p>Informação, prevenção e cuidado para todos</p>
+    <h1>🏫 Saúde e Segurança nas Escolas</h1>
+
+    <p>
+        Informação, prevenção, cuidado e responsabilidade
+    </p>
 </header>
+
+<nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#saude">Saúde</a>
+    <a href="#seguranca">Segurança</a>
+    <a href="#comentarios">Comentários</a>
+    <a href="#quiz">Quiz</a>
+</nav>
 
 <div class="container">
 
-    <!-- EXPLICAÇÃO -->
-    <section class="box">
+    <!-- INTRODUÇÃO -->
+
+    <section class="box" id="sobre">
 
         <h2>O que é saúde e segurança nas escolas?</h2>
 
         <p>
-            A saúde e a segurança nas escolas são fundamentais para criar um
-            ambiente adequado para estudantes, professores e funcionários.
-            Todos devem colaborar para prevenir acidentes, manter os espaços
-            limpos e promover hábitos saudáveis.
+            Saúde e segurança nas escolas envolvem um conjunto de cuidados
+            que ajudam a proteger estudantes, professores, funcionários e
+            visitantes. Um ambiente escolar saudável e seguro favorece o
+            aprendizado, a convivência e o bem-estar de todos.
         </p>
 
         <br>
 
         <p>
-            Algumas atitudes importantes são lavar as mãos, manter os ambientes
-            organizados, respeitar as regras de segurança, evitar comportamentos
-            que possam causar acidentes e procurar ajuda de um adulto responsável
-            quando ocorrer algum problema.
+            A escola deve incentivar hábitos saudáveis, manter os espaços
+            organizados, prevenir acidentes, orientar sobre situações de
+            emergência e promover uma convivência baseada no respeito.
         </p>
 
-        <br>
+        <div class="importante">
+            <strong>Importante:</strong>
 
-        <p>
-            A saúde mental também merece atenção. O respeito, o diálogo e o
-            combate ao bullying ajudam a construir uma escola mais acolhedora,
-            onde todos possam aprender e conviver melhor.
-        </p>
+            <p>
+                A segurança não depende de uma única pessoa. Toda a comunidade
+                escolar pode colaborar seguindo as regras, comunicando riscos
+                e cuidando dos espaços coletivos.
+            </p>
+        </div>
 
     </section>
 
-    <!-- COMENTÁRIO -->
-    <section class="box">
 
-        <h2>💬 Deixe seu comentário</h2>
+    <!-- SAÚDE -->
+
+    <section class="box" id="saude">
+
+        <h2>🩺 Cuidados com a saúde</h2>
 
         <p>
-            Qual é a sua opinião sobre a importância da saúde e da segurança
-            dentro das escolas?
+            Cuidar da saúde durante a vida escolar é importante para o
+            desenvolvimento físico, emocional e social dos estudantes.
         </p>
 
         <br>
 
-        <textarea id="comentario"
-            placeholder="Escreva seu comentário aqui..."></textarea>
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🧼 Higiene</h3>
+
+                <p>
+                    Bons hábitos de higiene ajudam a reduzir a transmissão
+                    de doenças.
+                </p>
+
+                <ul>
+                    <li>Lavar as mãos regularmente.</li>
+                    <li>Manter os ambientes limpos.</li>
+                    <li>Cobrir a boca e o nariz ao tossir ou espirrar.</li>
+                    <li>Não compartilhar objetos pessoais sem necessidade.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🥗 Alimentação</h3>
+
+                <p>
+                    Uma alimentação equilibrada contribui para energia e
+                    disposição durante as atividades escolares.
+                </p>
+
+                <ul>
+                    <li>Consumir alimentos variados.</li>
+                    <li>Beber água ao longo do dia.</li>
+                    <li>Evitar o consumo excessivo de alimentos ultraprocessados.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏃 Atividade física</h3>
+
+                <p>
+                    A atividade física pode contribuir para a saúde e para
+                    o bem-estar quando realizada de forma adequada.
+                </p>
+
+                <ul>
+                    <li>Participar das aulas de Educação Física.</li>
+                    <li>Movimentar-se durante o dia.</li>
+                    <li>Respeitar os próprios limites.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🧠 Saúde mental</h3>
+
+                <p>
+                    O bem-estar emocional também faz parte da saúde escolar.
+                    Respeito e diálogo ajudam a construir um ambiente acolhedor.
+                </p>
+
+                <ul>
+                    <li>Conversar quando estiver enfrentando dificuldades.</li>
+                    <li>Respeitar os sentimentos dos colegas.</li>
+                    <li>Procurar ajuda de adultos responsáveis quando necessário.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEGURANÇA -->
+
+    <section class="box" id="seguranca">
+
+        <h2>🛡️ Segurança na escola</h2>
+
+        <p>
+            A prevenção de acidentes é uma parte importante da segurança
+            escolar. Seguir as regras e comunicar situações perigosas pode
+            ajudar a evitar problemas.
+        </p>
+
+        <br>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🚸 Prevenção de acidentes</h3>
+
+                <ul>
+                    <li>Não correr em corredores e escadas.</li>
+                    <li>Não empurrar outras pessoas.</li>
+                    <li>Usar equipamentos corretamente.</li>
+                    <li>Manter objetos fora das áreas de passagem.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🔥 Incêndios e emergências</h3>
+
+                <ul>
+                    <li>Conhecer as saídas de emergência.</li>
+                    <li>Participar dos simulados de emergência.</li>
+                    <li>Seguir as orientações dos responsáveis.</li>
+                    <li>Manter a calma durante uma emergência.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>⚡ Segurança elétrica</h3>
+
+                <ul>
+                    <li>Não mexer em tomadas danificadas.</li>
+                    <li>Não tocar em equipamentos elétricos com as mãos molhadas.</li>
+                    <li>Informar problemas elétricos aos responsáveis.</li>
+                </ul>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏫 Espaços escolares</h3>
+
+                <ul>
+                    <li>Manter salas e corredores organizados.</li>
+                    <li>Respeitar placas e sinalizações.</li>
+                    <li>Não bloquear portas e saídas.</li>
+                    <li>Comunicar riscos encontrados no ambiente.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BULLYING -->
+
+    <section class="box">
+
+        <h2>🤝 Respeito e combate ao bullying</h2>
+
+        <p>
+            Uma escola segura também precisa ser um ambiente de respeito.
+            Comportamentos de bullying podem prejudicar a convivência e o
+            bem-estar dos estudantes.
+        </p>
+
+        <br>
+
+        <p>
+            É importante não incentivar agressões, humilhações ou
+            discriminações. Quando uma situação de bullying acontece,
+            o estudante deve procurar um professor, responsável ou outro
+            adulto de confiança.
+        </p>
+
+        <div class="alerta">
+
+            <strong>⚠️ Atenção:</strong>
+
+            <p>
+                Se você presenciar uma situação de violência, ameaça ou
+                bullying, procure um adulto responsável pela segurança
+                e pelo cuidado dos estudantes.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EMERGÊNCIA -->
+
+    <section class="box">
+
+        <h2>🚨 O que fazer em uma emergência?</h2>
+
+        <p>
+            Em uma emergência, é importante manter a calma e seguir as
+            orientações dos profissionais e responsáveis pela escola.
+        </p>
+
+        <br>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>1. Mantenha a calma</h3>
+                <p>
+                    Evite correr ou empurrar outras pessoas.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>2. Siga as orientações</h3>
+                <p>
+                    Preste atenção aos professores e responsáveis.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>3. Vá para um local seguro</h3>
+                <p>
+                    Siga os procedimentos de emergência da escola.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>4. Peça ajuda</h3>
+                <p>
+                    Informe imediatamente qualquer situação de perigo.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMENTÁRIOS -->
+
+    <section class="box" id="comentarios">
+
+        <h2>💬 Comentários</h2>
+
+        <p>
+            Deixe sua opinião sobre a importância da saúde e segurança
+            nas escolas.
+        </p>
+
+        <textarea
+            id="comentario"
+            placeholder="Digite seu comentário...">
+        </textarea>
 
         <button onclick="publicarComentario()">
             Publicar comentário
@@ -205,19 +536,21 @@
 
     </section>
 
-    <!-- QUIZ -->
-    <section class="box">
 
-        <h2>📝 Quiz: Saúde e Segurança</h2>
+    <!-- QUIZ -->
+
+    <section class="box" id="quiz">
+
+        <h2>📝 Quiz sobre Saúde e Segurança</h2>
 
         <p>
-            Teste seus conhecimentos respondendo às perguntas abaixo.
-            No final, clique em "Ver resultado".
+            Responda às perguntas e teste seus conhecimentos sobre o assunto.
         </p>
+
 
         <div class="quiz">
 
-            <h3>1. Qual é uma atitude importante para manter a escola segura?</h3>
+            <h3>1. Qual atitude ajuda a manter a escola segura?</h3>
 
             <label>
                 <input type="radio" name="q1" value="a">
@@ -236,14 +569,15 @@
 
             <label>
                 <input type="radio" name="q1" value="d">
-                Jogar lixo no chão
+                Empurrar os colegas
             </label>
 
         </div>
 
+
         <div class="quiz">
 
-            <h3>2. Qual atitude ajuda na prevenção de doenças?</h3>
+            <h3>2. Qual hábito ajuda na prevenção de doenças?</h3>
 
             <label>
                 <input type="radio" name="q2" value="a">
@@ -252,50 +586,52 @@
 
             <label>
                 <input type="radio" name="q2" value="b">
-                Compartilhar objetos pessoais sem cuidado
-            </label>
-
-            <label>
-                <input type="radio" name="q2" value="c">
                 Manter bons hábitos de higiene
             </label>
 
             <label>
-                <input type="radio" name="q2" value="d">
+                <input type="radio" name="q2" value="c">
                 Deixar o ambiente sujo
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="d">
+                Compartilhar objetos pessoais sem cuidado
             </label>
 
         </div>
 
+
         <div class="quiz">
 
-            <h3>3. Por que a saúde mental é importante na escola?</h3>
+            <h3>3. O que também faz parte da saúde escolar?</h3>
 
             <label>
                 <input type="radio" name="q3" value="a">
-                Porque promove respeito e bem-estar
+                Apenas a saúde física
             </label>
 
             <label>
                 <input type="radio" name="q3" value="b">
-                Porque elimina todas as regras
+                Apenas a alimentação
             </label>
 
             <label>
                 <input type="radio" name="q3" value="c">
-                Porque evita qualquer tipo de estudo
+                A saúde física e o bem-estar emocional
             </label>
 
             <label>
                 <input type="radio" name="q3" value="d">
-                Porque substitui os cuidados físicos
+                Somente a prática de esportes
             </label>
 
         </div>
 
+
         <div class="quiz">
 
-            <h3>4. O que fazer em uma situação de emergência?</h3>
+            <h3>4. O que fazer durante uma emergência?</h3>
 
             <label>
                 <input type="radio" name="q4" value="a">
@@ -304,7 +640,7 @@
 
             <label>
                 <input type="radio" name="q4" value="b">
-                Ignorar o problema
+                Ignorar os responsáveis
             </label>
 
             <label>
@@ -314,28 +650,29 @@
 
             <label>
                 <input type="radio" name="q4" value="d">
-                Voltar para procurar objetos pessoais
+                Voltar para buscar objetos pessoais
             </label>
 
         </div>
 
+
         <div class="quiz">
 
-            <h3>5. Quem deve colaborar para manter a escola segura?</h3>
+            <h3>5. Quem pode ajudar a manter a escola segura?</h3>
 
             <label>
                 <input type="radio" name="q5" value="a">
-                Somente os professores
+                Apenas os professores
             </label>
 
             <label>
                 <input type="radio" name="q5" value="b">
-                Somente os alunos
+                Apenas os alunos
             </label>
 
             <label>
                 <input type="radio" name="q5" value="c">
-                Somente os funcionários
+                Apenas os funcionários
             </label>
 
             <label>
@@ -344,6 +681,7 @@
             </label>
 
         </div>
+
 
         <button onclick="corrigirQuiz()">
             Ver resultado
@@ -355,66 +693,124 @@
 
 </div>
 
+
 <footer>
-    <p>Saúde e Segurança nas Escolas</p>
-    <p>Prevenir, cuidar e respeitar.</p>
+
+    <p>
+        Saúde e Segurança nas Escolas
+    </p>
+
+    <p>
+        Prevenir, cuidar, respeitar e proteger.
+    </p>
+
 </footer>
+
 
 <script>
 
+    // SISTEMA DE COMENTÁRIOS
+
     function publicarComentario() {
 
-        let texto = document.getElementById("comentario").value;
+        let texto = document
+            .getElementById("comentario")
+            .value
+            .trim();
 
-        if (texto.trim() === "") {
+        if (texto === "") {
+
             alert("Digite um comentário antes de publicar.");
+
             return;
         }
 
-        let novoComentario = document.createElement("div");
+        let novoComentario =
+            document.createElement("div");
 
-        novoComentario.className = "comentario-publicado";
+        novoComentario.className =
+            "comentario-publicado";
 
         novoComentario.innerHTML = `
             <p>${texto}</p>
-            <button class="excluir"
+
+            <button
+                class="excluir"
                 onclick="this.parentElement.remove()">
-                Excluir
+
+                Excluir comentário
+
             </button>
         `;
 
-        document.getElementById("listaComentarios")
+        document
+            .getElementById("listaComentarios")
             .appendChild(novoComentario);
 
-        document.getElementById("comentario").value = "";
+        document
+            .getElementById("comentario")
+            .value = "";
+
     }
 
+
+    // SISTEMA DO QUIZ
 
     function corrigirQuiz() {
 
         let respostasCorretas = {
+
             q1: "b",
-            q2: "c",
-            q3: "a",
+            q2: "b",
+            q3: "c",
             q4: "c",
             q5: "d"
+
         };
 
         let pontos = 0;
 
         for (let pergunta in respostasCorretas) {
 
-            let resposta = document.querySelector(
-                `input[name="${pergunta}"]:checked`
-            );
+            let resposta =
+                document.querySelector(
+                    `input[name="${pergunta}"]:checked`
+                );
 
-            if (resposta && resposta.value === respostasCorretas[pergunta]) {
+            if (
+                resposta &&
+                resposta.value === respostasCorretas[pergunta]
+            ) {
+
                 pontos++;
+
             }
+
         }
 
-        document.getElementById("resultado").innerHTML =
-            "Você acertou " + pontos + " de 5 perguntas!";
+        let resultado =
+            document.getElementById("resultado");
+
+        if (pontos === 5) {
+
+            resultado.innerHTML =
+                "Parabéns! Você acertou 5 de 5 perguntas!";
+
+        } else if (pontos >= 3) {
+
+            resultado.innerHTML =
+                "Muito bem! Você acertou " +
+                pontos +
+                " de 5 perguntas.";
+
+        } else {
+
+            resultado.innerHTML =
+                "Você acertou " +
+                pontos +
+                " de 5. Revise o conteúdo e tente novamente!";
+
+        }
 
     }
 
