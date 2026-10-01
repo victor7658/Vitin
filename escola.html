@@ -1,31 +1,67 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Comentários - Saúde e Segurança</title>
+    <title>Saúde e Segurança nas Escolas</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #eaf4ff;
-            margin: 0;
-            padding: 30px;
+            background: #eaf4ff;
+            color: #222;
+            line-height: 1.6;
         }
 
-        .comentarios {
-            max-width: 700px;
-            margin: auto;
-            background-color: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        h1 {
+        header {
+            background: #0066cc;
+            color: white;
             text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        h2 {
             color: #0066cc;
+            margin-bottom: 15px;
+        }
+
+        .comentario {
+            background: #f4f9ff;
+            border-left: 5px solid #0066cc;
+            padding: 18px;
+            margin-top: 15px;
+            border-radius: 8px;
         }
 
         textarea {
@@ -34,93 +70,356 @@
             padding: 12px;
             border: 2px solid #0066cc;
             border-radius: 10px;
-            resize: none;
             font-size: 16px;
-            box-sizing: border-box;
+            resize: none;
         }
 
         button {
-            margin-top: 12px;
-            padding: 12px 25px;
-            background-color: #0066cc;
+            background: #0066cc;
             color: white;
             border: none;
+            padding: 12px 22px;
+            margin-top: 12px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
         }
 
         button:hover {
-            background-color: #004c99;
+            background: #004c99;
         }
 
-        #listaComentarios {
-            margin-top: 25px;
-        }
-
-        .comentario {
-            background-color: #f1f7ff;
+        .comentario-publicado {
+            background: #f1f7ff;
+            margin-top: 15px;
             padding: 15px;
-            margin-top: 12px;
             border-radius: 10px;
             border-left: 5px solid #0066cc;
         }
 
-        .comentario button {
-            background-color: #d9534f;
+        .excluir {
+            background: #d9534f;
             padding: 7px 12px;
             font-size: 14px;
+        }
+
+        .quiz {
+            background: #f7fbff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .quiz h3 {
+            color: #004c99;
+            margin-bottom: 10px;
+        }
+
+        .quiz label {
+            display: block;
+            padding: 10px;
+            margin: 6px 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            background: #003b73;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="comentarios">
+<header>
+    <h1>Saúde e Segurança nas Escolas</h1>
+    <p>Informação, prevenção e cuidado para todos</p>
+</header>
 
-        <h1>💬 Comentários</h1>
+<div class="container">
+
+    <!-- EXPLICAÇÃO -->
+    <section class="box">
+
+        <h2>O que é saúde e segurança nas escolas?</h2>
 
         <p>
-            Deixe sua opinião sobre a importância da saúde e segurança nas escolas:
+            A saúde e a segurança nas escolas são fundamentais para criar um
+            ambiente adequado para estudantes, professores e funcionários.
+            Todos devem colaborar para prevenir acidentes, manter os espaços
+            limpos e promover hábitos saudáveis.
         </p>
 
-        <textarea id="comentario"
-            placeholder="Digite seu comentário..."></textarea>
+        <br>
 
-        <button onclick="adicionarComentario()">
+        <p>
+            Algumas atitudes importantes são lavar as mãos, manter os ambientes
+            organizados, respeitar as regras de segurança, evitar comportamentos
+            que possam causar acidentes e procurar ajuda de um adulto responsável
+            quando ocorrer algum problema.
+        </p>
+
+        <br>
+
+        <p>
+            A saúde mental também merece atenção. O respeito, o diálogo e o
+            combate ao bullying ajudam a construir uma escola mais acolhedora,
+            onde todos possam aprender e conviver melhor.
+        </p>
+
+    </section>
+
+    <!-- COMENTÁRIO -->
+    <section class="box">
+
+        <h2>💬 Deixe seu comentário</h2>
+
+        <p>
+            Qual é a sua opinião sobre a importância da saúde e da segurança
+            dentro das escolas?
+        </p>
+
+        <br>
+
+        <textarea id="comentario"
+            placeholder="Escreva seu comentário aqui..."></textarea>
+
+        <button onclick="publicarComentario()">
             Publicar comentário
         </button>
 
         <div id="listaComentarios"></div>
 
-    </div>
+    </section>
 
-    <script>
-        function adicionarComentario() {
+    <!-- QUIZ -->
+    <section class="box">
 
-            let texto = document.getElementById("comentario").value;
+        <h2>📝 Quiz: Saúde e Segurança</h2>
 
-            if (texto.trim() === "") {
-                alert("Digite um comentário antes de publicar!");
-                return;
-            }
+        <p>
+            Teste seus conhecimentos respondendo às perguntas abaixo.
+            No final, clique em "Ver resultado".
+        </p>
 
-            let novoComentario = document.createElement("div");
-            novoComentario.className = "comentario";
+        <div class="quiz">
 
-            novoComentario.innerHTML = `
-                <p>${texto}</p>
-                <button onclick="this.parentElement.remove()">
-                    Excluir
-                </button>
-            `;
+            <h3>1. Qual é uma atitude importante para manter a escola segura?</h3>
 
-            document.getElementById("listaComentarios")
-                .appendChild(novoComentario);
+            <label>
+                <input type="radio" name="q1" value="a">
+                Correr pelos corredores
+            </label>
 
-            document.getElementById("comentario").value = "";
+            <label>
+                <input type="radio" name="q1" value="b">
+                Respeitar as regras de segurança
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="c">
+                Bloquear as saídas
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="d">
+                Jogar lixo no chão
+            </label>
+
+        </div>
+
+        <div class="quiz">
+
+            <h3>2. Qual atitude ajuda na prevenção de doenças?</h3>
+
+            <label>
+                <input type="radio" name="q2" value="a">
+                Não lavar as mãos
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="b">
+                Compartilhar objetos pessoais sem cuidado
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="c">
+                Manter bons hábitos de higiene
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="d">
+                Deixar o ambiente sujo
+            </label>
+
+        </div>
+
+        <div class="quiz">
+
+            <h3>3. Por que a saúde mental é importante na escola?</h3>
+
+            <label>
+                <input type="radio" name="q3" value="a">
+                Porque promove respeito e bem-estar
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="b">
+                Porque elimina todas as regras
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="c">
+                Porque evita qualquer tipo de estudo
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="d">
+                Porque substitui os cuidados físicos
+            </label>
+
+        </div>
+
+        <div class="quiz">
+
+            <h3>4. O que fazer em uma situação de emergência?</h3>
+
+            <label>
+                <input type="radio" name="q4" value="a">
+                Correr sem orientação
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="b">
+                Ignorar o problema
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="c">
+                Seguir as orientações dos responsáveis
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="d">
+                Voltar para procurar objetos pessoais
+            </label>
+
+        </div>
+
+        <div class="quiz">
+
+            <h3>5. Quem deve colaborar para manter a escola segura?</h3>
+
+            <label>
+                <input type="radio" name="q5" value="a">
+                Somente os professores
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="b">
+                Somente os alunos
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="c">
+                Somente os funcionários
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="d">
+                Toda a comunidade escolar
+            </label>
+
+        </div>
+
+        <button onclick="corrigirQuiz()">
+            Ver resultado
+        </button>
+
+        <div id="resultado"></div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>Saúde e Segurança nas Escolas</p>
+    <p>Prevenir, cuidar e respeitar.</p>
+</footer>
+
+<script>
+
+    function publicarComentario() {
+
+        let texto = document.getElementById("comentario").value;
+
+        if (texto.trim() === "") {
+            alert("Digite um comentário antes de publicar.");
+            return;
         }
-    </script>
+
+        let novoComentario = document.createElement("div");
+
+        novoComentario.className = "comentario-publicado";
+
+        novoComentario.innerHTML = `
+            <p>${texto}</p>
+            <button class="excluir"
+                onclick="this.parentElement.remove()">
+                Excluir
+            </button>
+        `;
+
+        document.getElementById("listaComentarios")
+            .appendChild(novoComentario);
+
+        document.getElementById("comentario").value = "";
+    }
+
+
+    function corrigirQuiz() {
+
+        let respostasCorretas = {
+            q1: "b",
+            q2: "c",
+            q3: "a",
+            q4: "c",
+            q5: "d"
+        };
+
+        let pontos = 0;
+
+        for (let pergunta in respostasCorretas) {
+
+            let resposta = document.querySelector(
+                `input[name="${pergunta}"]:checked`
+            );
+
+            if (resposta && resposta.value === respostasCorretas[pergunta]) {
+                pontos++;
+            }
+        }
+
+        document.getElementById("resultado").innerHTML =
+            "Você acertou " + pontos + " de 5 perguntas!";
+
+    }
+
+</script>
 
 </body>
 </html>
+```
