@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comentários - Saúde e Segurança</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4ff;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .comentarios {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0066cc;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 2px solid #0066cc;
+            border-radius: 10px;
+            resize: none;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 12px 25px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #004c99;
+        }
+
+        #listaComentarios {
+            margin-top: 25px;
+        }
+
+        .comentario {
+            background-color: #f1f7ff;
+            padding: 15px;
+            margin-top: 12px;
+            border-radius: 10px;
+            border-left: 5px solid #0066cc;
+        }
+
+        .comentario button {
+            background-color: #d9534f;
+            padding: 7px 12px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="comentarios">
+
+        <h1>💬 Comentários</h1>
+
+        <p>
+            Deixe sua opinião sobre a importância da saúde e segurança nas escolas:
+        </p>
+
+        <textarea id="comentario"
+            placeholder="Digite seu comentário..."></textarea>
+
+        <button onclick="adicionarComentario()">
+            Publicar comentário
+        </button>
+
+        <div id="listaComentarios"></div>
+
+    </div>
+
+    <script>
+        function adicionarComentario() {
+
+            let texto = document.getElementById("comentario").value;
+
+            if (texto.trim() === "") {
+                alert("Digite um comentário antes de publicar!");
+                return;
+            }
+
+            let novoComentario = document.createElement("div");
+            novoComentario.className = "comentario";
+
+            novoComentario.innerHTML = `
+                <p>${texto}</p>
+                <button onclick="this.parentElement.remove()">
+                    Excluir
+                </button>
+            `;
+
+            document.getElementById("listaComentarios")
+                .appendChild(novoComentario);
+
+            document.getElementById("comentario").value = "";
+        }
+    </script>
+
+</body>
+</html>
