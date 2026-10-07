@@ -5,33 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vídeo - Git e GitHub</title>
+    <title>Git e GitHub</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0f0f0f;
+            background-color: #0f0f0f;
             color: white;
+            font-family: Arial, sans-serif;
         }
 
-        /* BARRA SUPERIOR */
         header {
-            height: 60px;
-            background: #0f0f0f;
+            height: 65px;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid #303030;
             display: flex;
             align-items: center;
             padding: 0 25px;
-            border-bottom: 1px solid #272727;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
         }
 
@@ -41,41 +40,41 @@
 
         .pesquisa {
             margin-left: 50px;
-            width: 500px;
             display: flex;
+            width: 500px;
         }
 
         .pesquisa input {
-            width: 100%;
-            padding: 12px;
+            flex: 1;
+            height: 42px;
             background: #121212;
             border: 1px solid #444;
             color: white;
-            border-radius: 25px 0 0 25px;
-            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border-radius: 22px 0 0 22px;
         }
 
         .pesquisa button {
             width: 60px;
-            border: none;
+            border: 1px solid #444;
             background: #222;
             color: white;
-            border-radius: 0 25px 25px 0;
+            border-radius: 0 22px 22px 0;
             cursor: pointer;
         }
 
-        /* CONTEÚDO */
         .container {
+            width: 90%;
             max-width: 1100px;
             margin: 30px auto;
-            padding: 0 20px;
         }
 
         /* VÍDEO */
         .video {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: black;
+            background-color: black;
             border-radius: 12px;
             overflow: hidden;
         }
@@ -86,20 +85,18 @@
             border: none;
         }
 
-        /* TÍTULO */
         h1 {
             font-size: 24px;
             margin-top: 20px;
             margin-bottom: 15px;
         }
 
-        /* INFORMAÇÕES */
-        .info {
+        .informacoes {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
             border-bottom: 1px solid #333;
-            padding-bottom: 20px;
         }
 
         .canal {
@@ -108,82 +105,75 @@
             gap: 12px;
         }
 
-        .foto-canal {
+        .foto {
             width: 45px;
             height: 45px;
-            background: #555;
+            background-color: #555;
             border-radius: 50%;
         }
 
-        .nome-canal {
+        .nome {
             font-weight: bold;
         }
 
         .inscrever {
-            background: white;
+            background-color: white;
             color: black;
             border: none;
-            padding: 12px 20px;
+            padding: 11px 18px;
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        /* BOTÕES */
-        .acoes {
+        .botoes {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .acoes button {
-            background: #272727;
+        .botoes button {
+            background-color: #272727;
             color: white;
             border: none;
-            padding: 12px 18px;
+            padding: 11px 17px;
             border-radius: 20px;
             cursor: pointer;
         }
 
-        .acoes button:hover {
-            background: #3f3f3f;
+        .botoes button:hover {
+            background-color: #444;
         }
 
-        /* DESCRIÇÃO */
         .descricao {
-            background: #272727;
             margin-top: 20px;
+            background-color: #272727;
             padding: 18px;
             border-radius: 12px;
             line-height: 1.6;
         }
 
-        /* RESPONSIVO */
         @media (max-width: 700px) {
-
-            header {
-                padding: 0 10px;
-            }
 
             .pesquisa {
                 display: none;
             }
 
             .container {
+                width: 96%;
                 margin-top: 15px;
-                padding: 0 10px;
             }
 
             h1 {
                 font-size: 18px;
             }
 
-            .info {
+            .informacoes {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
 
-            .acoes {
+            .botoes {
                 width: 100%;
                 overflow-x: auto;
             }
@@ -209,12 +199,15 @@
 
     <main class="container">
 
-        <!-- VÍDEO DO YOUTUBE -->
+        <!-- ========================================= -->
+        <!--          VÍDEO DO YOUTUBE                -->
+        <!-- ========================================= -->
+
         <div class="video">
 
             <iframe
                 src="https://www.youtube.com/embed/LkBjOeoHBhA"
-                title="Oque é Git e Github explicado com bananas"
+                title="O que é Git e GitHub explicado com bananas"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
             </iframe>
@@ -223,24 +216,28 @@
 
 
         <!-- TÍTULO -->
+
         <h1>
-            Oque é Git e Github explicado com bananas | Coisas que você precisa saber!
+            O que é Git e GitHub explicado com bananas | Coisas que você precisa saber!
         </h1>
 
 
         <!-- INFORMAÇÕES -->
-        <div class="info">
+
+        <div class="informacoes">
 
             <div class="canal">
 
-                <div class="foto-canal"></div>
+                <div class="foto"></div>
 
                 <div>
-                    <div class="nome-canal">
-                        Vídeo do YouTube
+                    <div class="nome">
+                        Git e GitHub
                     </div>
 
-                    <small>Conteúdo sobre Git e GitHub</small>
+                    <small>
+                        Vídeo educativo
+                    </small>
                 </div>
 
                 <button class="inscrever">
@@ -250,7 +247,7 @@
             </div>
 
 
-            <div class="acoes">
+            <div class="botoes">
 
                 <button>👍 Curtir</button>
 
@@ -264,14 +261,15 @@
 
 
         <!-- DESCRIÇÃO -->
+
         <div class="descricao">
 
-            <strong>Sobre este vídeo</strong>
+            <strong>Descrição</strong>
 
             <p>
-                Neste vídeo você aprende de forma simples o que são
-                Git e GitHub e como eles são utilizados no desenvolvimento
-                de projetos.
+                Aprenda de maneira simples o que é Git e GitHub
+                e entenda como essas ferramentas são utilizadas
+                para controlar e armazenar projetos.
             </p>
 
         </div>
