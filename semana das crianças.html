@@ -8,34 +8,41 @@
     <title>Minhas Férias de Dia das Crianças</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #dbeafe;
             margin: 0;
-            padding: 30px 15px;
+            padding: 25px 15px;
             color: #1e293b;
         }
 
-        /* Seta para voltar à página oficial da Mochila */
-        .voltar {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            background-color: #2563eb;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            transition: 0.3s;
+        /* Botão para voltar à página oficial */
+        .area-voltar {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
         }
 
-        .voltar:hover {
-            background-color: #1d4ed8;
-            transform: translateX(-4px);
+        .botao-voltar {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            box-shadow: 0 4px 8px #0002;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .botao-voltar:hover {
+            background-color: #1e40af;
+            transform: translateX(-3px);
         }
 
         .container {
@@ -89,15 +96,17 @@
 
 <body>
 
-    <div class="container">
-
-        <!-- Seta para voltar à página oficial da Mochila -->
+    <!-- BOTÃO PARA VOLTAR À PÁGINA OFICIAL DA MOCHILA -->
+    <div class="area-voltar">
         <a
-            href="COLOQUE_AQUI_O_LINK_DA_SUA_MOCHILA"
-            class="voltar"
-            title="Voltar para a página oficial da Mochila"
-            aria-label="Voltar para a página oficial da Mochila"
-        >←</a>
+            class="botao-voltar"
+            href="https://SEU-USUARIO.github.io/SUA-MOCHILA/"
+        >
+            ← Voltar para a Mochila
+        </a>
+    </div>
+
+    <div class="container">
 
         <h1>🎈 Minhas Férias de Dia das Crianças 🎮</h1>
 
