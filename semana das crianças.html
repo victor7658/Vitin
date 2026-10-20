@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Minhas Férias de Dia das Crianças</title>
 
     <style>
@@ -13,6 +14,28 @@
             margin: 0;
             padding: 30px 15px;
             color: #1e293b;
+        }
+
+        /* Seta para voltar à página oficial da Mochila */
+        .voltar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background-color: #2563eb;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .voltar:hover {
+            background-color: #1d4ed8;
+            transform: translateX(-4px);
         }
 
         .container {
@@ -47,6 +70,20 @@
             margin-top: 25px;
             color: #64748b;
         }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .texto {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 
@@ -54,14 +91,21 @@
 
     <div class="container">
 
+        <!-- Seta para voltar à página oficial da Mochila -->
+        <a
+            href="COLOQUE_AQUI_O_LINK_DA_SUA_MOCHILA"
+            class="voltar"
+            title="Voltar para a página oficial da Mochila"
+            aria-label="Voltar para a página oficial da Mochila"
+        >←</a>
+
         <h1>🎈 Minhas Férias de Dia das Crianças 🎮</h1>
 
         <h2>Como foram minhas férias?</h2>
 
-        <div class="texto">
-    Nessa semana de ferias de dias das crianças,trabalhei,tive uma visita da minha tia la de são paulo foi bom porque vejo ela so de ano em ano,alem do trabalho fiquei cansado,mais tive momentos bons com minha familia nessa semana de ferias das crianças.
-    Para 2027 nas ferias das crianças,quero trabalhar mais também passar mais tempo com meu Pai,Mãe,Irmão e com parentes que virão de longe.e quero tmb descançar mais.
-        </div>
+        <div class="texto">Nessa semana de férias de Dia das Crianças, trabalhei e tive uma visita da minha tia lá de São Paulo. Foi bom porque vejo ela só de ano em ano. Além do trabalho, fiquei cansado, mas tive momentos bons com minha família nessa semana de férias do Dia das Crianças.
+
+Para 2027, nas férias do Dia das Crianças, quero trabalhar, mas também passar mais tempo com meu pai, minha mãe, meu irmão e com parentes que virão de longe. Também quero descansar mais.</div>
 
         <footer>
             <p>✨ Minhas férias, minhas histórias e minhas lembranças! ✨</p>
