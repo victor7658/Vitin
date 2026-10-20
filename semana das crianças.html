@@ -20,14 +20,18 @@
             color: #1e293b;
         }
 
-        /* Botão para voltar à página oficial */
+        /* ÁREA DO BOTÃO DE VOLTAR */
         .area-voltar {
             max-width: 800px;
             margin: 0 auto 20px auto;
+            text-align: left;
         }
 
+        /* BOTÃO VOLTAR PARA A MOCHILA */
         .botao-voltar {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background-color: #2563eb;
             color: white;
             padding: 13px 22px;
@@ -35,14 +39,14 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
-            border: none;
-            box-shadow: 0 4px 8px #0002;
-            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px #0002;
+            transition: 0.3s;
         }
 
         .botao-voltar:hover {
-            background-color: #1e40af;
-            transform: translateX(-3px);
+            background-color: #1d4ed8;
+            transform: translateX(-4px);
+            box-shadow: 0 6px 15px #0003;
         }
 
         .container {
@@ -90,19 +94,21 @@
             .texto {
                 font-size: 16px;
             }
+
+            .botao-voltar {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- BOTÃO PARA VOLTAR À PÁGINA OFICIAL DA MOCHILA -->
+    <!-- BOTÃO QUE VOLTA À MOCHILA DO VICTOR -->
     <div class="area-voltar">
-        <a
-            class="botao-voltar"
-            href="https://SEU-USUARIO.github.io/SUA-MOCHILA/"
-        >
-            ← Voltar para a Mochila
+        <a href="./index.html" class="botao-voltar">
+            <span aria-hidden="true">←</span>
+            <span>Voltar para a Mochila</span>
         </a>
     </div>
 
